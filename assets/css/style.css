@@ -1210,3 +1210,7 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+ul li {
+  list-style: none !important;
+}
