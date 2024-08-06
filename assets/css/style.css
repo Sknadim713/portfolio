@@ -534,11 +534,12 @@ section {
 
 .resume .resume-item h4 {
   line-height: 18px;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #0563bb;
+  /* color: #0563bb; */
+  color: white;
   margin-bottom: 10px;
 }
 
