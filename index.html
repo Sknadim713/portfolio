@@ -1,64 +1,162 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark" data-theme-accent="blue">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nadim Shaikh — Frontend Developer</title>
+  <title>Nadim Shaikh — Angular Developer (v11–21 &amp; Ionic Mobile)</title>
+  <meta name="description"
+    content="Portfolio of Nadim Shaikh, Angular Developer with 4.3+ years experience across Angular versions 11 to 21, Ionic mobile apps, and enterprise delivery in Fintech, Medical, Transport, ERP, and Education.">
+  <meta name="keywords"
+    content="Nadim Shaikh, Angular Developer, Angular 11-21, Ionic Angular, Fintech UI, Medical UI, Transport Telemetry, ERP Dashboard, Education Portals, AG Grid, NgRx, RxJS, CMS Developer, Pune Frontend Developer">
+  <meta name="author" content="Nadim Shaikh">
 
-  <!-- Google Fonts -->
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Nadim Shaikh — Angular Developer (4.3+ Yrs)">
+  <meta property="og:description"
+    content="Angular Developer (v11–21 &amp; Ionic) with 4.3+ years production experience across Fintech, Medical, Transport, ERP, and Education.">
+  <meta property="og:url" content="https://github.com/Sknadim713">
+
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Bootstrap 5.3 -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
-    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+  <!-- Bootstrap Icons & FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
   <style>
+    /* =====================================================
+       DESIGN SYSTEM & THEME TOKENS
+    ===================================================== */
     :root {
-      --bg: #0b1220;
-      --panel: #111a2c;
-      --panel-2: #0e1728;
-      --line: #1f2a40;
+      --bg: #070d18;
+      --bg-gradient: radial-gradient(circle at 50% 0%, #0d1a33 0%, #070d18 70%);
+      --panel: #0e172a;
+      --panel-2: #131f38;
+      --panel-glass: rgba(15, 23, 42, 0.75);
+      --line: #1e293b;
+      --line-hover: rgba(59, 130, 246, 0.45);
 
-      --ink: #edeff3;
-      --ink-dim: #8b95a8;
+      --ink: #f1f5f9;
+      --ink-dim: #94a3b8;
+      --ink-muted: #64748b;
 
-      --signal: #3e7cff;
-      --verified: #3fb68c;
-      --amber: #e8a33d;
+      /* Accent Themes (Default: Electric Sapphire) */
+      --signal: #3b82f6;
+      --signal-rgb: 59, 130, 246;
+      --signal-hover: #60a5fa;
+      --signal-glow: rgba(59, 130, 246, 0.25);
+
+      --verified: #10b981;
+      --verified-rgb: 16, 185, 129;
+      --amber: #f59e0b;
+      --cyan: #06b6d4;
+      --purple: #8b5cf6;
+      --rose: #f43f5e;
 
       --mono: "JetBrains Mono", monospace;
-      --sans: "Inter", sans-serif;
+      --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --radius-lg: 18px;
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 25px rgba(var(--signal-rgb), 0.25);
     }
 
+    /* Accent color variants */
+    [data-theme-accent="emerald"] {
+      --signal: #10b981;
+      --signal-rgb: 16, 185, 129;
+      --signal-hover: #34d399;
+      --signal-glow: rgba(16, 185, 129, 0.25);
+      --line-hover: rgba(16, 185, 129, 0.45);
+    }
+
+    [data-theme-accent="purple"] {
+      --signal: #8b5cf6;
+      --signal-rgb: 139, 92, 246;
+      --signal-hover: #a78bfa;
+      --signal-glow: rgba(139, 92, 246, 0.25);
+      --line-hover: rgba(139, 92, 246, 0.45);
+    }
+
+    [data-theme-accent="amber"] {
+      --signal: #f59e0b;
+      --signal-rgb: 245, 158, 11;
+      --signal-hover: #fbbf24;
+      --signal-glow: rgba(245, 158, 11, 0.25);
+      --line-hover: rgba(245, 158, 11, 0.45);
+    }
+
+    [data-theme-accent="cyan"] {
+      --signal: #06b6d4;
+      --signal-rgb: 6, 182, 212;
+      --signal-hover: #22d3ee;
+      --signal-glow: rgba(6, 182, 212, 0.25);
+      --line-hover: rgba(6, 182, 212, 0.45);
+    }
+
+    /* Global Base */
     * {
       box-sizing: border-box;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
+      scroll-padding-top: 85px;
     }
 
     body {
       margin: 0;
       background: var(--bg);
+      background-image: var(--bg-gradient);
       color: var(--ink);
       font-family: var(--sans);
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.65;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient animated mesh grid */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Interactive cursor glow orb */
+    #cursor-glow {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--signal-glow) 0%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      opacity: 0.6;
+      transition: transform 0.15s cubic-bezier(0.2, 0, 0.1, 1), background 0.4s ease;
     }
 
     .mono {
@@ -68,30 +166,60 @@
     a {
       color: var(--signal);
       text-decoration: none;
+      transition: all 0.2s ease;
     }
 
     a:hover {
-      color: #6ea0ff;
+      color: var(--signal-hover);
+    }
+
+    ::selection {
+      background: var(--signal);
+      color: #fff;
     }
 
     /* =====================================================
        NAVBAR
     ===================================================== */
-
     .navbar {
-      background: rgba(11, 18, 32, 0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(7, 13, 24, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
-      z-index: 9999;
+      z-index: 1050;
+      padding-block: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding-block: 0.6rem;
+      background: rgba(7, 13, 24, 0.95);
+      border-bottom-color: rgba(var(--signal-rgb), 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
     }
 
     .navbar-brand {
       font-family: var(--mono);
       font-weight: 700;
+      font-size: 1.05rem;
       letter-spacing: -0.02em;
       color: var(--ink) !important;
-      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .navbar-brand .brand-logo-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--signal), #4f46e5);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.85rem;
+      box-shadow: 0 0 12px var(--signal-glow);
     }
 
     .navbar-brand .dot {
@@ -102,980 +230,1276 @@
       font-family: var(--mono);
       font-size: 0.85rem;
       color: var(--ink-dim) !important;
-      padding: 0.5rem 1rem !important;
-      transition: color 0.2s ease;
+      padding: 0.5rem 0.9rem !important;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      position: relative;
     }
 
     .nav-link:hover,
     .nav-link.active {
       color: var(--ink) !important;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: var(--signal);
+      border-radius: 2px;
     }
 
     .navbar-toggler {
       border: 1px solid var(--line);
-      padding: 0.35rem 0.6rem;
+      padding: 0.4rem 0.65rem;
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .navbar-toggler:focus {
-      box-shadow: none;
+      box-shadow: 0 0 0 2px var(--signal-glow);
     }
 
-    /* =====================================================
-       HERO
-    ===================================================== */
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 8rem 0 5rem;
-
-      border-bottom: 1px solid var(--line);
-
-      background:
-        radial-gradient(
-          ellipse 80% 50% at 50% -10%,
-          rgba(62, 124, 255, 0.14),
-          transparent
-        );
-    }
-
-    .status-chip {
+    /* Theme accent picker pills */
+    .theme-picker {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-
-      font-family: var(--mono);
-      font-size: 0.78rem;
-
-      color: var(--verified);
-
-      background: rgba(63, 182, 140, 0.09);
-      border: 1px solid rgba(63, 182, 140, 0.3);
-
-      border-radius: 4px;
-      padding: 5px 12px;
-
-      letter-spacing: 0.02em;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 3px 6px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
     }
 
-    .status-chip .pulse {
-      width: 7px;
-      height: 7px;
-
+    .theme-dot {
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
-      background: var(--verified);
-
-      box-shadow: 0 0 0 0 rgba(63, 182, 140, 0.6);
-
-      animation: pulse 2s infinite;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(63, 182, 140, 0.5);
-      }
-
-      70% {
-        box-shadow: 0 0 0 8px rgba(63, 182, 140, 0);
-      }
-
-      100% {
-        box-shadow: 0 0 0 0 rgba(63, 182, 140, 0);
-      }
+    .theme-dot:hover {
+      transform: scale(1.2);
     }
 
-    .hero h1 {
-      font-family: var(--mono);
-      font-weight: 700;
-
-      font-size: clamp(2.2rem, 6vw, 4rem);
-
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-
-      margin: 1.2rem 0 0.8rem;
+    .theme-dot.active {
+      border-color: #fff;
+      transform: scale(1.15);
     }
 
-    .hero h1 .accent {
-      color: var(--signal);
+    .theme-dot.blue {
+      background: #3b82f6;
     }
 
-    .hero .role-line {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: var(--ink-dim);
-
-      max-width: 680px;
+    .theme-dot.emerald {
+      background: #10b981;
     }
 
-    .hero .role-line strong {
-      color: var(--ink);
-      font-weight: 500;
+    .theme-dot.purple {
+      background: #8b5cf6;
+    }
+
+    .theme-dot.amber {
+      background: #f59e0b;
+    }
+
+    .theme-dot.cyan {
+      background: #06b6d4;
     }
 
     /* =====================================================
-       BUTTONS
+       BUTTONS & BADGES
     ===================================================== */
-
     .contact-btn {
       font-family: var(--mono);
       font-size: 0.85rem;
-
+      font-weight: 500;
       border: 1px solid var(--line);
       color: var(--ink);
-
-      border-radius: 6px;
-
-      padding: 0.7rem 1.3rem;
-
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 1.25rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-
-      transition:
-        border-color 0.2s ease,
-        transform 0.2s ease,
-        background 0.2s ease;
+      gap: 9px;
+      background: var(--panel);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
     }
 
     .contact-btn:hover {
       border-color: var(--signal);
       color: var(--ink);
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(var(--signal-rgb), 0.2);
     }
 
     .contact-btn.primary {
       background: var(--signal);
       border-color: var(--signal);
       color: #fff;
+      box-shadow: 0 4px 15px var(--signal-glow);
     }
 
     .contact-btn.primary:hover {
-      background: #5c8fff;
+      background: var(--signal-hover);
+      border-color: var(--signal-hover);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(var(--signal-rgb), 0.35);
+    }
+
+    .contact-btn.github {
+      background: #181c24;
+      border-color: #2b3547;
       color: #fff;
     }
 
-    /* =====================================================
-       TERMINAL
-    ===================================================== */
-
-    .terminal {
-      width: 100%;
-
-      background: var(--panel);
-
-      border: 1px solid var(--line);
-      border-radius: 8px;
-
-      overflow: hidden;
-
-      box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
+    .contact-btn.github:hover {
+      border-color: #fff;
+      background: #232936;
     }
 
-    .terminal-head {
-      display: flex;
+    .badge-chip {
+      display: inline-flex;
       align-items: center;
-
       gap: 6px;
-
-      padding: 10px 14px;
-
-      background: var(--panel-2);
-
-      border-bottom: 1px solid var(--line);
-    }
-
-    .terminal-head span:not(.label) {
-      width: 10px;
-      height: 10px;
-
-      border-radius: 50%;
-
-      display: inline-block;
-    }
-
-    .terminal-head .r {
-      background: #e24b4a;
-    }
-
-    .terminal-head .y {
-      background: var(--amber);
-    }
-
-    .terminal-head .g {
-      background: var(--verified);
-    }
-
-    .terminal-head .label {
-      margin-left: 10px;
-
       font-family: var(--mono);
-      font-size: 0.72rem;
-
+      font-size: 0.75rem;
+      border-radius: 6px;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
       color: var(--ink-dim);
     }
 
-    .terminal-body {
-      padding: 18px 20px;
-
-      font-family: var(--mono);
-      font-size: 0.82rem;
-
-      color: #b9c2d4;
-    }
-
-    .terminal-body .k {
-      color: var(--signal);
-    }
-
-    .terminal-body .v {
+    .badge-chip.pulse-verified {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.3);
       color: var(--verified);
     }
 
-    .terminal-body .c {
-      color: var(--ink-dim);
+    .badge-chip.pulse-verified .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--verified);
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+      animation: pulseAnim 2s infinite;
     }
 
-    .terminal-body .row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+    @keyframes pulseAnim {
+      0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+      }
 
-      gap: 20px;
+      70% {
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+      }
 
-      padding: 6px 0;
-
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
-
-      margin: 0;
-    }
-
-    .terminal-body .row:last-child {
-      border-bottom: none;
+      100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
     }
 
     /* =====================================================
-       SECTIONS
+       HERO SECTION
     ===================================================== */
+    .hero {
+      min-height: 94vh;
+      display: flex;
+      align-items: center;
+      padding: 7.5rem 0 4rem;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      z-index: 2;
+    }
 
+    .hero-glow-blob {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 350px;
+      background: radial-gradient(ellipse, var(--signal-glow) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(40px);
+    }
+
+    .hero h1 {
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: clamp(2.4rem, 6.2vw, 4.3rem);
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin: 1.1rem 0 0.75rem;
+    }
+
+    .hero h1 .text-gradient {
+      background: linear-gradient(135deg, #ffffff 30%, var(--signal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero .typewriter-role {
+      font-family: var(--mono);
+      font-size: clamp(1.05rem, 2.5vw, 1.45rem);
+      color: var(--signal);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 38px;
+    }
+
+    .typing-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1.2em;
+      background: var(--signal);
+      animation: blinkCursor 0.9s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blinkCursor {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .hero .role-line {
+      font-size: clamp(1.02rem, 1.8vw, 1.15rem);
+      color: var(--ink-dim);
+      max-width: 660px;
+      line-height: 1.7;
+    }
+
+    .hero .role-line strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .hero-spec-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-spec-tag {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .hero-spec-tag i {
+      color: var(--signal);
+    }
+
+    .hero-spec-tag:hover {
+      border-color: var(--signal);
+      background: rgba(var(--signal-rgb), 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Hero stats grid (4 clean cards) */
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 2rem;
+      padding-top: 1.8rem;
+      border-top: 1px dashed var(--line);
+    }
+
+    .stat-mini-card {
+      background: rgba(14, 23, 42, 0.6);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem;
+      text-align: left;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .stat-mini-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--signal);
+    }
+
+    .stat-mini-card .val {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 1.65rem;
+      color: #fff;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #fff 40%, var(--signal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-mini-card .desc {
+      font-size: 0.76rem;
+      color: var(--ink-dim);
+      font-family: var(--mono);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* =====================================================
+       TERMINAL & STYLED ENGINEER.TS CODE EDITOR
+    ===================================================== */
+    .hero-code-window {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    .code-window-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: var(--panel-2);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .window-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .window-dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .window-dots .dot-r {
+      background: #ef4444;
+    }
+
+    .window-dots .dot-y {
+      background: #f59e0b;
+    }
+
+    .window-dots .dot-g {
+      background: #10b981;
+    }
+
+    .window-file-tab {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .window-file-tab i {
+      color: #38bdf8;
+    }
+
+    .code-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      color: var(--ink-dim);
+      padding: 3px 9px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .code-copy-btn:hover {
+      border-color: var(--signal);
+      color: var(--ink);
+    }
+
+    /* Styled IDE Code Body */
+    .code-editor-body {
+      font-family: var(--mono);
+      font-size: 0.81rem;
+      line-height: 1.68;
+      padding: 1.25rem 1rem;
+      max-height: 490px;
+      overflow-y: auto;
+      background: rgba(10, 16, 28, 0.96);
+    }
+
+    .code-row {
+      display: flex;
+      align-items: flex-start;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .code-num {
+      width: 28px;
+      color: #475569;
+      user-select: none;
+      text-align: right;
+      margin-right: 14px;
+      font-size: 0.74rem;
+      flex-shrink: 0;
+    }
+
+    /* Syntax Tokens */
+    .tok-kw {
+      color: #f43f5e;
+      font-weight: 600;
+    }
+
+    /* export, const */
+    .tok-def {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    /* Developer */
+    .tok-prop {
+      color: #c084fc;
+    }
+
+    /* properties */
+    .tok-str {
+      color: #34d399;
+    }
+
+    /* strings */
+    .tok-str.verified {
+      color: #10b981;
+      font-weight: 600;
+    }
+
+    .tok-comment {
+      color: #64748b;
+      font-style: italic;
+    }
+
+    .tok-punc {
+      color: #94a3b8;
+    }
+
+    /* =====================================================
+       SECTION COMMONS
+    ===================================================== */
     section {
-      padding: 5rem 0;
+      padding: 5.5rem 0;
+      position: relative;
+      z-index: 2;
     }
 
     .eyebrow {
       font-family: var(--mono);
-      font-size: 0.78rem;
-
+      font-size: 0.8rem;
       color: var(--signal);
-
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-
       margin-bottom: 0.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .eyebrow::before {
+      content: "//";
+      opacity: 0.6;
     }
 
     .section-title {
-      font-family: var(--mono);
-      font-weight: 700;
-
-      font-size: clamp(1.6rem, 4vw, 1.9rem);
-
-      letter-spacing: -0.02em;
-
-      margin-bottom: 2.2rem;
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      letter-spacing: -0.025em;
+      margin-bottom: 0.9rem;
+      line-height: 1.18;
     }
 
-    .section-title .idx {
+    .section-subtitle {
+      font-size: 1.05rem;
       color: var(--ink-dim);
-      font-weight: 400;
+      max-width: 740px;
+      margin-bottom: 2.8rem;
     }
 
     /* =====================================================
-       SKILLS
+       MULTI-DOMAIN SPECIALIZATION CARDS
     ===================================================== */
-
-    .skill-panel {
+    .pillar-card {
       height: 100%;
-
       background: var(--panel);
-
       border: 1px solid var(--line);
-      border-radius: 8px;
-
-      padding: 1.5rem 1.6rem;
-
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .skill-panel:hover {
-      transform: translateY(-3px);
-      border-color: rgba(62, 124, 255, 0.45);
+    .pillar-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--signal), var(--verified));
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .skill-panel .head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      margin-bottom: 1rem;
-
-      font-family: var(--mono);
-      font-size: 0.95rem;
-
-      color: var(--ink);
+    .pillar-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--line-hover);
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 20px var(--signal-glow);
     }
 
-    .skill-panel .head i {
+    .pillar-card:hover::before {
+      opacity: 1;
+    }
+
+    .pillar-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(var(--signal-rgb), 0.1);
+      border: 1px solid rgba(var(--signal-rgb), 0.25);
       color: var(--signal);
-      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.4rem;
     }
 
-    .skill-panel.skill-primary {
-      border-color: rgba(62, 124, 255, 0.4);
+    .pillar-card.medical .pillar-icon-box {
+      background: rgba(244, 63, 94, 0.12);
+      border-color: rgba(244, 63, 94, 0.3);
+      color: #f43f5e;
     }
 
-    .skill-panel.skill-primary .head i {
+    .pillar-card.transport .pillar-icon-box {
+      background: rgba(6, 182, 212, 0.12);
+      border-color: rgba(6, 182, 212, 0.3);
+      color: #06b6d4;
+    }
+
+    .pillar-card.erp .pillar-icon-box {
+      background: rgba(139, 92, 246, 0.12);
+      border-color: rgba(139, 92, 246, 0.3);
+      color: #8b5cf6;
+    }
+
+    .pillar-card.education .pillar-icon-box {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: #f59e0b;
+    }
+
+    .pillar-card.cms .pillar-icon-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.25);
       color: var(--verified);
     }
 
-    .tag {
-      display: inline-block;
-
-      font-family: var(--mono);
-      font-size: 0.75rem;
-
-      color: #b9c2d4;
-
-      background: var(--panel-2);
-
-      border: 1px solid var(--line);
-      border-radius: 4px;
-
-      padding: 4px 9px;
-
-      margin: 0 6px 6px 0;
-
-      transition:
-        transform 0.15s ease,
-        border-color 0.15s ease,
-        color 0.15s ease;
+    .pillar-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
     }
 
-    .tag:hover {
-      transform: translateY(-2px);
-
-      border-color: var(--signal);
-
-      color: var(--ink);
+    .pillar-card p {
+      font-size: 0.93rem;
+      color: var(--ink-dim);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
     }
 
-    .tag-primary {
-      color: #bfd8ff;
-
-      background: rgba(62, 124, 255, 0.08);
-
-      border-color: rgba(62, 124, 255, 0.3);
+    .pillar-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.88rem;
     }
 
-    .tag-primary:hover {
-      border-color: var(--verified);
-      color: #fff;
+    .pillar-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: #cbd5e1;
+    }
+
+    .pillar-feature-list li i {
+      color: var(--verified);
+      margin-top: 3px;
+      font-size: 0.85rem;
     }
 
     /* =====================================================
-       EXPERIENCE TIMELINE
+       INTERACTIVE LIVE FINTECH DEMO / AG GRID SIMULATOR
     ===================================================== */
+    .demo-container {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      margin-top: 1.5rem;
+    }
 
+    .demo-topbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      background: var(--panel-2);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .demo-account-summary {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .demo-balance {
+      font-family: var(--mono);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .demo-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .demo-search-input {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      outline: none;
+      min-width: 180px;
+    }
+
+    .demo-search-input:focus {
+      border-color: var(--signal);
+    }
+
+    .demo-filter-btn {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: var(--ink-dim);
+      cursor: pointer;
+    }
+
+    .demo-filter-btn.active,
+    .demo-filter-btn:hover {
+      background: var(--signal);
+      border-color: var(--signal);
+      color: #fff;
+    }
+
+    .demo-grid-wrapper {
+      overflow-x: auto;
+    }
+
+    .demo-grid-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      text-align: left;
+    }
+
+    .demo-grid-table th {
+      background: rgba(19, 31, 56, 0.8);
+      padding: 12px 16px;
+      color: var(--ink-dim);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    .demo-grid-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+      white-space: nowrap;
+    }
+
+    .demo-grid-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+      color: #fff;
+    }
+
+    .status-badge-settled {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--verified);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+    }
+
+    .status-badge-pending {
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--amber);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+    }
+
+    .status-badge-flagged {
+      background: rgba(244, 63, 94, 0.12);
+      color: var(--rose);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+    }
+
+    /* =====================================================
+       ENTERPRISE LIBRARY MATRIX (11 CATEGORIES & TOP 15)
+    ===================================================== */
+    .filter-pills-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2.5rem;
+    }
+
+    .lib-filter-pill {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--ink-dim);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lib-filter-pill:hover,
+    .lib-filter-pill.active {
+      background: var(--signal);
+      border-color: var(--signal);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px var(--signal-glow);
+    }
+
+    .lib-filter-pill.featured-pill {
+      border-color: rgba(245, 158, 11, 0.4);
+      color: var(--amber);
+    }
+
+    .lib-filter-pill.featured-pill.active {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: #000;
+      font-weight: 600;
+    }
+
+    .lib-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .lib-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--line-hover);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .lib-card.top15 {
+      border-color: rgba(var(--signal-rgb), 0.35);
+      background: linear-gradient(180deg, rgba(var(--signal-rgb), 0.05) 0%, var(--panel) 100%);
+    }
+
+    .lib-card .lib-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.6rem;
+    }
+
+    .lib-card .lib-name {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .lib-card .lib-rank {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      background: rgba(var(--signal-rgb), 0.15);
+      color: var(--signal);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(var(--signal-rgb), 0.3);
+      font-weight: 600;
+    }
+
+    .lib-card .lib-rank.gold {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--amber);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .lib-card .lib-desc {
+      font-size: 0.85rem;
+      color: var(--ink-dim);
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .lib-card .lib-category-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+    }
+
+    /* Priority 15 Highlight Box */
+    .top15-banner {
+      background: linear-gradient(135deg, rgba(var(--signal-rgb), 0.15), rgba(16, 185, 129, 0.1));
+      border: 1px solid rgba(var(--signal-rgb), 0.3);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* =====================================================
+       EXPERIENCE LOG (4.3+ YEARS TIMELINE)
+    ===================================================== */
     .experience-section {
       background: var(--panel-2);
-
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
-    .log-item {
+    .timeline-wrap {
       position: relative;
-
-      padding: 0 0 2.6rem 2.2rem;
-
-      border-left: 1px solid var(--line);
+      padding-left: 2rem;
     }
 
-    .log-item:last-child {
+    .timeline-wrap::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      left: 7px;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 3.5rem;
+    }
+
+    .timeline-item:last-child {
       padding-bottom: 0;
     }
 
-    .log-item::before {
-      content: "";
-
+    .timeline-dot {
       position: absolute;
-
-      left: -5px;
+      left: -2rem;
       top: 4px;
-
-      width: 9px;
-      height: 9px;
-
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
-
       background: var(--bg);
-
-      border: 2px solid var(--signal);
+      border: 3px solid var(--signal);
+      transform: translateX(0);
+      z-index: 2;
     }
 
-    .log-item.current::before {
-      background: var(--verified);
+    .timeline-item.current .timeline-dot {
       border-color: var(--verified);
+      background: var(--verified);
+      box-shadow: 0 0 12px var(--verified);
     }
 
-    .log-meta {
+    .timeline-content {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: all 0.25s ease;
+    }
+
+    .timeline-content:hover {
+      border-color: var(--line-hover);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-role {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .timeline-date {
       font-family: var(--mono);
-      font-size: 0.76rem;
-
+      font-size: 0.8rem;
       color: var(--ink-dim);
-
-      margin-bottom: 6px;
     }
 
-    .current-badge {
-      color: var(--verified);
-
-      border: 1px solid rgba(63, 182, 140, 0.35);
-
-      background: rgba(63, 182, 140, 0.08);
-
-      border-radius: 4px;
-
-      padding: 1px 8px;
-
-      margin-left: 8px;
+    .timeline-org {
+      font-size: 0.95rem;
+      color: var(--signal);
+      font-weight: 500;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .log-role {
-      font-size: 1.15rem;
-      font-weight: 600;
-
-      margin-bottom: 2px;
-    }
-
-    .log-org {
-      color: var(--ink-dim);
-      font-size: 0.92rem;
-
-      margin-bottom: 12px;
-    }
-
-    .log-org .company {
-      color: var(--ink);
-    }
-
-    .log-item ul {
+    .timeline-bullets {
       margin: 0;
-
-      padding-left: 1.1rem;
-
-      font-size: 0.94rem;
-
-      color: #c4cbda;
+      padding-left: 1.2rem;
+      color: #cbd5e1;
+      font-size: 0.92rem;
     }
 
-    .log-item ul li {
-      margin-bottom: 6px;
+    .timeline-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .timeline-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--line);
+    }
+
+    .timeline-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: var(--ink-dim);
     }
 
     /* =====================================================
-       PROJECTS
+       PROJECTS CARDS
     ===================================================== */
-
     .proj-card {
-      height: 100%;
-
       background: var(--panel);
-
       border: 1px solid var(--line);
-
-      border-radius: 8px;
-
-      padding: 1.6rem;
-
-      transition:
-        border-color 0.2s ease,
-        transform 0.2s ease;
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .proj-card:hover {
+      transform: translateY(-6px);
       border-color: var(--signal);
-
-      transform: translateY(-3px);
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 20px var(--signal-glow);
     }
 
-    .proj-card .badge-industry {
+    .proj-tag {
       font-family: var(--mono);
-      font-size: 0.7rem;
-
+      font-size: 0.72rem;
       color: var(--amber);
-
-      background: rgba(232, 163, 61, 0.08);
-
-      border: 1px solid rgba(232, 163, 61, 0.3);
-
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.25);
       border-radius: 4px;
-
-      padding: 3px 9px;
-
-      letter-spacing: 0.03em;
+      padding: 3px 8px;
+      align-self: flex-start;
+      margin-bottom: 0.9rem;
     }
 
     .proj-card h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-
-      margin: 0.8rem 0 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
     }
 
     .proj-card p {
       font-size: 0.9rem;
-
       color: var(--ink-dim);
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+    }
 
-      margin: 0;
+    .proj-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .proj-links a {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* GitHub banner callout */
+    .github-profile-banner {
+      background: linear-gradient(135deg, #161b22, #0d1117);
+      border: 1px solid #30363d;
+      border-radius: var(--radius);
+      padding: 2.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .github-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid #58a6ff;
     }
 
     /* =====================================================
-       EDUCATION
+       EDUCATION & CERTIFICATIONS
     ===================================================== */
-
     .education-section {
       background: var(--panel-2);
-
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
-    .edu-row {
+    .edu-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.4rem;
       display: flex;
-
       justify-content: space-between;
-      align-items: baseline;
-
-      gap: 20px;
-
-      padding: 1.1rem 0;
-
-      border-bottom: 1px solid var(--line);
-
-      font-size: 0.95rem;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
     }
 
-    .edu-row:last-child {
-      border-bottom: none;
+    .edu-card:hover {
+      border-color: var(--signal);
+      transform: translateX(4px);
     }
 
-    .edu-row .deg {
-      font-weight: 600;
+    .edu-card .deg {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
     }
 
-    .edu-row .inst {
+    .edu-card .inst {
+      font-size: 0.88rem;
       color: var(--ink-dim);
-
-      font-size: 0.85rem;
     }
 
-    .edu-row .yr {
+    .edu-card .yr {
       font-family: var(--mono);
-
-      font-size: 0.8rem;
-
-      color: var(--ink-dim);
-
+      font-size: 0.82rem;
+      color: var(--signal);
+      background: rgba(var(--signal-rgb), 0.1);
+      border: 1px solid rgba(var(--signal-rgb), 0.2);
+      padding: 4px 10px;
+      border-radius: 4px;
       white-space: nowrap;
     }
 
     /* =====================================================
-       CONTACT
+       CONTACT SECTION (CLEAN DIRECT CONNECT CARD)
     ===================================================== */
-
     .contact-section {
       border-top: 1px solid var(--line);
-
       background: var(--panel-2);
     }
 
-    .contact-description {
-      color: var(--ink-dim);
+    .contact-direct-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
 
-      max-width: 520px;
+    .contact-item-box {
+      background: rgba(14, 23, 42, 0.7);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.25s ease;
+      height: 100%;
+    }
 
-      margin-inline: auto;
+    .contact-item-box:hover {
+      border-color: var(--signal);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-icon-bubble {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(var(--signal-rgb), 0.12);
+      border: 1px solid rgba(var(--signal-rgb), 0.3);
+      color: var(--signal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
     }
 
     /* =====================================================
        FOOTER
     ===================================================== */
-
     footer {
-      padding: 1.6rem 0;
-
+      padding: 2rem 0;
       border-top: 1px solid var(--line);
-
       font-family: var(--mono);
-
-      font-size: 0.75rem;
-
+      font-size: 0.8rem;
       color: var(--ink-dim);
+      background: var(--bg);
     }
 
     /* =====================================================
-       REVEAL ANIMATION
+       SCROLL ANIMATIONS (REVEAL)
     ===================================================== */
-
-    @keyframes rise {
-      from {
-        opacity: 0;
-        transform: translateY(22px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
     .reveal {
       opacity: 0;
-
-      animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-
-      animation-play-state: paused;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal.in-view {
-      animation-play-state: running;
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Hero animations */
-
-    .hero .status-chip {
-      animation: fadeIn 0.6s ease forwards;
-    }
-
-    .hero h1 {
-      opacity: 0;
-
-      animation:
-        rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
-    }
-
-    .hero .role-line {
-      opacity: 0;
-
-      animation:
-        rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
-    }
-
-    .hero .hero-buttons {
-      opacity: 0;
-
-      animation:
-        rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
-    }
-
-    .hero .terminal {
-      opacity: 0;
-
-      animation:
-        rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
-    }
-
-    .terminal-body .row {
-      opacity: 0;
-
-      animation: fadeIn 0.4s ease forwards;
-    }
-
-    .terminal-body .row:nth-child(1) {
-      animation-delay: 0.6s;
-    }
-
-    .terminal-body .row:nth-child(2) {
-      animation-delay: 0.72s;
-    }
-
-    .terminal-body .row:nth-child(3) {
-      animation-delay: 0.84s;
-    }
-
-    .terminal-body .row:nth-child(4) {
-      animation-delay: 0.96s;
-    }
-
-    .terminal-body .row:nth-child(5) {
-      animation-delay: 1.08s;
-    }
-
-    /* =====================================================
-       TABLET
-    ===================================================== */
-
+    /* Responsive */
     @media (max-width: 991.98px) {
+      .hero {
+        padding-top: 7rem;
+        min-height: auto;
+      }
+
+      .hero-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
       .navbar-collapse {
         background: var(--panel);
-
         border: 1px solid var(--line);
-
         border-radius: 8px;
-
         margin-top: 12px;
-
-        padding: 10px;
-      }
-
-      .nav-link {
-        padding: 0.65rem 0.8rem !important;
-      }
-
-      .hero {
-        min-height: auto;
-
-        padding-top: 8rem;
-        padding-bottom: 4rem;
-      }
-
-      .terminal {
-        max-width: 700px;
-
-        margin-inline: auto;
+        padding: 12px;
       }
     }
-
-    /* =====================================================
-       MOBILE
-    ===================================================== */
-
-    @media (max-width: 767.98px) {
-
-      body {
-        font-size: 15px;
-      }
-
-      section {
-        padding: 4rem 0;
-      }
-
-      .hero {
-        padding: 7rem 0 3.5rem;
-      }
-
-      .hero h1 {
-        font-size: clamp(2rem, 10vw, 3rem);
-      }
-
-      .hero .role-line {
-        font-size: 1rem;
-      }
-
-      .hero-buttons {
-        width: 100%;
-      }
-
-      .hero-buttons .contact-btn {
-        flex: 1 1 auto;
-      }
-
-      .terminal-body {
-        padding: 14px;
-      }
-
-      .terminal-body .row {
-        flex-direction: column;
-
-        gap: 2px;
-
-        padding: 8px 0;
-      }
-
-      .terminal-body .row span:last-child {
-        word-break: break-word;
-      }
-
-      .skill-panel {
-        padding: 1.25rem;
-      }
-
-      .log-item {
-        padding-left: 1.5rem;
-      }
-
-      .log-role {
-        font-size: 1.05rem;
-      }
-
-      .log-item ul {
-        font-size: 0.9rem;
-      }
-
-      .proj-card {
-        padding: 1.35rem;
-      }
-
-      .edu-row {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 5px;
-      }
-
-      .edu-row .yr {
-        white-space: normal;
-      }
-
-      .contact-btn {
-        width: 100%;
-      }
-
-      .contact-buttons {
-        width: 100%;
-      }
-    }
-
-    /* =====================================================
-       SMALL MOBILE
-    ===================================================== */
 
     @media (max-width: 575.98px) {
-
-      .container {
-        --bs-gutter-x: 1.5rem;
-      }
-
-      .status-chip {
-        font-size: 0.68rem;
-
-        padding: 5px 9px;
-      }
-
       .hero h1 {
-        font-size: 2rem;
-
-        line-height: 1.15;
+        font-size: 2.3rem;
       }
 
-      .hero .role-line {
-        font-size: 0.94rem;
-
-        line-height: 1.7;
+      .hero-stats-row {
+        grid-template-columns: 1fr;
       }
 
-      .hero-buttons {
+      .edu-card {
         flex-direction: column;
-
-        gap: 10px !important;
-      }
-
-      .hero-buttons .contact-btn {
-        width: 100%;
-      }
-
-      .terminal-head {
-        padding: 9px 12px;
-      }
-
-      .terminal-body {
-        font-size: 0.7rem;
-      }
-
-      .section-title {
-        margin-bottom: 1.6rem;
-      }
-
-      .eyebrow {
-        font-size: 0.7rem;
-      }
-
-      .skill-panel .head {
-        font-size: 0.85rem;
-      }
-
-      .tag {
-        font-size: 0.68rem;
-
-        padding: 4px 7px;
-      }
-
-      .log-item {
-        padding-left: 1.2rem;
-      }
-
-      .current-badge {
-        display: inline-block;
-
-        margin-left: 0;
-
-        margin-top: 5px;
-      }
-
-      .proj-card h3 {
-        font-size: 1rem;
-      }
-
-      .proj-card p {
-        font-size: 0.85rem;
-      }
-
-      footer .container {
-        flex-direction: column;
-
-        align-items: center;
-
-        text-align: center;
-      }
-    }
-
-    /* =====================================================
-       ACCESSIBILITY
-    ===================================================== */
-
-    @media (prefers-reduced-motion: reduce) {
-
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-
-      .reveal,
-      .hero h1,
-      .hero .role-line,
-      .hero .hero-buttons,
-      .hero .terminal,
-      .terminal-body .row,
-      .hero .status-chip {
-        animation: none !important;
-
-        opacity: 1 !important;
-
-        transform: none !important;
+        align-items: flex-start;
       }
     }
   </style>
@@ -1083,1157 +1507,1864 @@
 
 <body>
 
+  <!-- Interactive Background Mouse Glow Tracker -->
+  <div id="cursor-glow"></div>
+
   <!-- =====================================================
        NAVBAR
   ====================================================== -->
-
-  <nav class="navbar navbar-expand-lg fixed-top py-3">
-
+  <nav class="navbar navbar-expand-lg fixed-top" id="topNavbar">
     <div class="container">
-
       <a class="navbar-brand" href="#top">
+        <span class="brand-logo-icon"><i class="bi bi-code-slash"></i></span>
         shaikh<span class="dot">.</span>dev
       </a>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#mainNav"
-        aria-controls="mainNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
+      <!-- Quick Theme Accent Switcher in Header -->
+      <div class="d-none d-md-flex align-items-center ms-3 theme-picker" title="Switch Theme Accent">
+        <span style="font-size: 0.72rem; color: var(--ink-muted); margin-right: 4px;" class="mono">Accent:</span>
+        <span class="theme-dot blue active" data-accent="blue" title="Electric Sapphire"></span>
+        <span class="theme-dot emerald" data-accent="emerald" title="Fintech Emerald"></span>
+        <span class="theme-dot purple" data-accent="purple" title="Cyber Violet"></span>
+        <span class="theme-dot amber" data-accent="amber" title="Gold Amber"></span>
+        <span class="theme-dot cyan" data-accent="cyan" title="Cyan Stream"></span>
+      </div>
 
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="bi bi-list text-white fs-4"></i>
-
       </button>
 
-      <div
-        class="collapse navbar-collapse justify-content-end"
-        id="mainNav">
-
-        <ul class="navbar-nav gap-lg-1">
-
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav align-items-lg-center gap-lg-1">
           <li class="nav-item">
-            <a class="nav-link" href="#stack">
-              stack
+            <a class="nav-link" href="#domains">Domains</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#demo">Live Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#stack">Stack Matrix</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#experience">Experience (4.3+ Yrs)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#education">Education</a>
+          </li>
+          <li class="nav-item ms-lg-2">
+            <a class="contact-btn primary" href="#contact" style="padding: 0.45rem 1rem; font-size: 0.8rem;">
+              <i class="bi bi-person-lines-fill"></i> Connect
             </a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#experience">
-              experience
+          <li class="nav-item ms-lg-1">
+            <a class="contact-btn github" href="https://github.com/Sknadim713" target="_blank" rel="noopener noreferrer"
+              style="padding: 0.45rem 0.9rem; font-size: 0.8rem;">
+              <i class="bi bi-github"></i> GitHub
             </a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#projects">
-              projects
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#education">
-              education
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">
-              contact
-            </a>
-          </li>
-
         </ul>
-
       </div>
-
     </div>
-
   </nav>
 
-
   <!-- =====================================================
-       HERO
+       HERO SECTION
   ====================================================== -->
-
   <header class="hero" id="top">
+    <div class="hero-glow-blob"></div>
 
     <div class="container">
-
       <div class="row align-items-center g-4 g-lg-5">
-
         <!-- Hero Content -->
-
         <div class="col-12 col-lg-7">
-
-          <span class="status-chip">
-
-            <span class="pulse"></span>
-
-            AVAILABLE FOR NEW ROLES
-
-          </span>
+          <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+            <span class="badge-chip pulse-verified">
+              <span class="pulse-dot"></span>
+              AVAILABLE FOR NEW ROLES
+            </span>
+            <span class="badge-chip">
+              <i class="bi bi-award-fill text-warning"></i>
+              4.3+ YEARS PROD EXPERIENCE
+            </span>
+          </div>
 
           <h1>
-
             Nadim Shaikh
-
             <br>
-
-            <span class="accent">
-              // Frontend Developer
-            </span>
-
+            <span class="text-gradient">Angular Developer</span>
           </h1>
 
+          <div class="typewriter-role">
+            <span id="role-typewriter">// Angular v11–v21 &amp; Ionic Mobile Apps</span>
+            <span class="typing-cursor"></span>
+          </div>
+
           <p class="role-line">
-
-            4+ years hands-on with
-            <strong>Angular &amp; Ionic</strong>
-            — web and mobile apps for banks, hospitals,
-            and enterprises — plus working proficiency in
-            <strong>React, Node.js &amp; MongoDB</strong>
-            for full-stack delivery when a project calls for it.
-
+            <strong>4.3+ years</strong> of hands-on production experience architecting web and mobile applications
+            across <strong>Angular versions 11 through 21</strong> and <strong>Ionic Angular hybrid mobile
+              apps</strong>.
+            Proven multi-domain engineering spanning <strong>Fintech &amp; Banking</strong>, <strong>Medical &amp;
+              Healthcare</strong>, <strong>Transport &amp; Telemetry</strong>, <strong>Enterprise ERP</strong>, and
+            <strong>Education &amp; Admissions</strong>, with Enterprise CMS and Full-Stack delivery.
           </p>
 
+          <!-- Key Spec Chips -->
+          <div class="hero-spec-chips">
+            <span class="hero-spec-tag"><i class="bi bi-shield-check"></i> Angular v11 to v21</span>
+            <span class="hero-spec-tag"><i class="bi bi-phone"></i> Ionic Mobile (iOS &amp; Android)</span>
+            <span class="hero-spec-tag"><i class="bi bi-grid-3x3-gap-fill"></i> AG Grid Enterprise</span>
+            <span class="hero-spec-tag"><i class="bi bi-layers-fill"></i> NgRx &amp; Reactive Forms</span>
+            <span class="hero-spec-tag"><i class="bi bi-file-earmark-richtext-fill"></i> Enterprise CMS &amp;
+              SFMC</span>
+          </div>
+
           <div class="hero-buttons d-flex flex-wrap gap-3 mt-4">
-
-            <a href="#contact" class="contact-btn primary">
-
-              <i class="bi bi-terminal"></i>
-
-              get in touch
-
+            <a href="#domains" class="contact-btn primary">
+              <i class="bi bi-collection-fill"></i> Explore 5 Industry Domains
             </a>
-
-            <a href="#experience" class="contact-btn">
-
-              <i class="bi bi-arrow-down"></i>
-
-              view experience
-
+            <a href="#demo" class="contact-btn">
+              <i class="bi bi-play-circle-fill text-success"></i> Live Transaction Demo
             </a>
-
+            <a href="https://github.com/Sknadim713" target="_blank" rel="noopener noreferrer"
+              class="contact-btn github">
+              <i class="bi bi-github"></i> GitHub Profile
+            </a>
           </div>
-
         </div>
 
-
-        <!-- Terminal -->
-
+        <!-- Terminal: Styled engineer.ts Code Editor Window -->
         <div class="col-12 col-lg-5">
-
-          <div class="terminal">
-
-            <div class="terminal-head">
-
-              <span class="r"></span>
-              <span class="y"></span>
-              <span class="g"></span>
-
-              <span class="label">
-                status.log
+          <div class="hero-code-window">
+            <div class="code-window-head">
+              <div class="window-dots">
+                <span class="dot-r"></span>
+                <span class="dot-y"></span>
+                <span class="dot-g"></span>
+              </div>
+              <div class="window-file-tab">
+                <i class="bi bi-filetype-tsx"></i> engineer.ts
+              </div>
+              <span class="code-copy-btn" onclick="copyEngineerCode(this)" title="Copy Code">
+                <i class="bi bi-copy"></i> copy
               </span>
-
             </div>
 
-            <div class="terminal-body">
-
-              <div class="row">
-
-                <span class="c">
-                  role
-                </span>
-
-                <span class="k">
-                  Angular Developer
-                </span>
-
-              </div>
-
-              <div class="row">
-
-                <span class="c">
-                  primary_stack
-                </span>
-
-                <span>
-                  Angular · Ionic (mobile)
-                </span>
-
-              </div>
-
-              <div class="row">
-
-                <span class="c">
-                  secondary_stack
-                </span>
-
-                <span>
-                  React · Node.js · MongoDB
-                </span>
-
-              </div>
-
-              <div class="row">
-
-                <span class="c">
-                  location
-                </span>
-
-                <span>
-                  Pune, Maharashtra, IN
-                </span>
-
-              </div>
-
-              <div class="row">
-
-                <span class="c">
-                  experience
-                </span>
-
-                <span>
-                  4+ yrs
-                </span>
-
-              </div>
-
-              <div class="row">
-
-                <span class="c">
-                  next
-                </span>
-
-                <span class="k">
-                  MCA — in progress, 2026
-                </span>
-
-              </div>
-
+            <!-- Styled IDE Code Body with syntax highlighting & line numbers -->
+            <div class="code-editor-body" id="engineerCodeContainer">
+              <div class="code-row"><span class="code-num">1</span><span class="tok-comment">// engineer.ts — Nadim
+                  Shaikh</span></div>
+              <div class="code-row"><span class="code-num">2</span><span class="tok-kw">export const</span>&nbsp; <span
+                  class="tok-def">Developer</span> = {</div>
+              <div class="code-row"><span class="code-num">3</span> <span class="tok-prop">name</span>: <span
+                  class="tok-str">"Shaikh Nadim"</span>,</div>
+              <div class="code-row"><span class="code-num">4</span> <span class="tok-prop">role</span>: <span
+                  class="tok-str">"Angular Developer"</span>,</div>
+              <div class="code-row"><span class="code-num">5</span> <span class="tok-prop">experience</span>: <span
+                  class="tok-str">"4.3+ Years Production"</span>,</div>
+              <div class="code-row"><span class="code-num">6</span> <span class="tok-prop">angularVersions</span>: <span
+                  class="tok-str">"Angular 11 to 21"</span>,</div>
+              <div class="code-row"><span class="code-num">7</span> <span class="tok-prop">mobileApps</span>: <span
+                  class="tok-str">"Ionic Angular (Capacitor / Android &amp; iOS)"</span>,</div>
+              <div class="code-row"><span class="code-num">8</span> <span class="tok-prop">domains</span>: [</div>
+              <div class="code-row"><span class="code-num">9</span> <span class="tok-str">"Fintech &amp; Banking (KYC,
+                  AG Grid, NEFT/RTGS, NACH)"</span>,</div>
+              <div class="code-row"><span class="code-num">10</span> <span class="tok-str">"Medical &amp; Healthcare
+                  (Clinical, Patient EHR, WCAG)"</span>,</div>
+              <div class="code-row"><span class="code-num">11</span> <span class="tok-str">"Transport &amp; Telemetry
+                  (GPS Fleet, Leaflet Maps)"</span>,</div>
+              <div class="code-row"><span class="code-num">12</span> <span class="tok-str">"Enterprise ERP
+                  (Multi-tenant, RBAC, Procurement)"</span>,</div>
+              <div class="code-row"><span class="code-num">13</span> <span class="tok-str">"Education Portals
+                  (Admissions, Merit, Fees)"</span></div>
+              <div class="code-row"><span class="code-num">14</span> ],</div>
+              <div class="code-row"><span class="code-num">15</span> <span class="tok-prop">coreStack</span>: [</div>
+              <div class="code-row"><span class="code-num">16</span> <span class="tok-str">"Angular (11-21)"</span>,
+                <span class="tok-str">"Ionic"</span>, <span class="tok-str">"TypeScript"</span>,</div>
+              <div class="code-row"><span class="code-num">17</span> <span class="tok-str">"RxJS"</span>, <span
+                  class="tok-str">"NgRx Store/Effects"</span>, <span class="tok-str">"AG Grid"</span>,</div>
+              <div class="code-row"><span class="code-num">18</span> <span class="tok-str">"ngx-formly"</span>, <span
+                  class="tok-str">"Reactive Forms"</span>, <span class="tok-str">"Material"</span></div>
+              <div class="code-row"><span class="code-num">19</span> ],</div>
+              <div class="code-row"><span class="code-num">20</span> <span class="tok-prop">cmsSpecialty</span>: <span
+                  class="tok-str">"SFMC AMPscript, ngx-quill, TinyMCE, CKEditor"</span>,</div>
+              <div class="code-row"><span class="code-num">21</span> <span class="tok-prop">fullStack</span>: <span
+                  class="tok-str">"Node.js, Express, MongoDB, React.js"</span>,</div>
+              <div class="code-row"><span class="code-num">22</span> <span class="tok-prop">education</span>: <span
+                  class="tok-str">"MCA (In Progress 2026) · B.Sc. IT (Grade A)"</span>,</div>
+              <div class="code-row"><span class="code-num">23</span> <span class="tok-prop">status</span>: <span
+                  class="tok-str verified">"Open to Opportunities"</span></div>
+              <div class="code-row"><span class="code-num">24</span>};</div>
             </div>
-
           </div>
-
         </div>
 
+        <!-- Hero Stats Row: Separate col-12 -->
+        <div class="col-12 reveal">
+          <div class="hero-stats-row">
+            <div class="stat-mini-card">
+              <div class="val">4.3+</div>
+              <div class="desc">Years Enterprise Experience</div>
+            </div>
+            <div class="stat-mini-card">
+              <div class="val">v11–v21</div>
+              <div class="desc">Angular Versions Mastered</div>
+            </div>
+            <div class="stat-mini-card">
+              <div class="val">Ionic</div>
+              <div class="desc">iOS &amp; Android Mobile Apps</div>
+            </div>
+            <div class="stat-mini-card">
+              <div class="val">5 Domains</div>
+              <div class="desc">Fintech, Med, Transport, ERP, Edu</div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-
   </header>
 
-
   <!-- =====================================================
-       SKILLS
+       MULTI-DOMAIN SPECIALIZATION: FINTECH, MEDICAL, TRANSPORT, ERP, EDUCATION
   ====================================================== -->
-
-  <section id="stack">
-
+  <section id="domains">
     <div class="container">
-
-      <div class="eyebrow reveal">
-        // 01
-      </div>
-
-      <div class="section-title reveal">
-        Core stack
-      </div>
-
-
-      <div class="row g-4">
-
-        <!-- Primary -->
-
-        <div class="col-12 col-md-6 reveal">
-
-          <div class="skill-panel skill-primary">
-
-            <div class="head">
-
-              <i class="bi bi-star-fill"></i>
-
-              <span>
-                Primary stack — 4+ yrs hands-on
-              </span>
-
-            </div>
-
-            <div>
-
-              <span class="tag tag-primary">
-                Angular v11–21
-              </span>
-
-              <span class="tag tag-primary">
-                Ionic
-              </span>
-
-              <span class="tag tag-primary">
-                TypeScript
-              </span>
-
-              <span class="tag tag-primary">
-                Reactive Forms
-              </span>
-
-              <span class="tag tag-primary">
-                Angular Material
-              </span>
-
-              <span class="tag tag-primary">
-                RxJS
-              </span>
-
-              <span class="tag tag-primary">
-                JavaScript ES6+
-              </span>
-
-              <span class="tag tag-primary">
-                HTML5 / CSS3
-              </span>
-
-              <span class="tag tag-primary">
-                Bootstrap
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- Full Stack -->
-
-        <div class="col-12 col-md-6 reveal">
-
-          <div class="skill-panel">
-
-            <div class="head">
-
-              <i class="bi bi-hdd-network"></i>
-
-              <span>
-                Working proficiency — full-stack
-              </span>
-
-            </div>
-
-            <div>
-
-              <span class="tag">
-                React.js
-              </span>
-
-              <span class="tag">
-                Node.js
-              </span>
-
-              <span class="tag">
-                MongoDB
-              </span>
-
-              <span class="tag">
-                REST APIs
-              </span>
-
-              <span class="tag">
-                GraphQL
-              </span>
-
-              <span class="tag">
-                JWT Auth
-              </span>
-
-              <span class="tag">
-                OAuth 2.0
-              </span>
-
-              <span class="tag">
-                RBAC
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- Tools -->
-
-        <div class="col-12 reveal">
-
-          <div class="skill-panel">
-
-            <div class="head">
-
-              <i class="bi bi-tools"></i>
-
-              <span>
-                Tools &amp; practices
-              </span>
-
-            </div>
-
-            <div>
-
-              <span class="tag">
-                Git / GitHub / GitLab
-              </span>
-
-              <span class="tag">
-                Agile / Scrum
-              </span>
-
-              <span class="tag">
-                WCAG Accessibility
-              </span>
-
-              <span class="tag">
-                Mobile-First Design
-              </span>
-
-              <span class="tag">
-                Performance Optimization
-              </span>
-
-              <span class="tag">
-                Postman / Swagger
-              </span>
-
-              <span class="tag">
-                SFMC / AMPscript
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       EXPERIENCE
-  ====================================================== -->
-
-  <section id="experience" class="experience-section">
-
-    <div class="container">
-
-      <div class="eyebrow reveal">
-        // 02
-      </div>
-
-      <div class="section-title reveal">
-        Experience log
-      </div>
-
-
-      <!-- Current -->
-
-      <div class="log-item current reveal">
-
-        <div class="log-meta">
-
-          DEC 2024 — PRESENT
-
-          <span class="current-badge">
-            current
-          </span>
-
-        </div>
-
-        <div class="log-role">
-          Angular Developer
-        </div>
-
-        <div class="log-org">
-
-          <span class="company">
-            Indiconnect Fintech &amp; Banking
-          </span>
-
-          · Pune, Maharashtra
-
-        </div>
-
-        <ul>
-
-          <li>
-            Developed secure UI modules for customer onboarding — multi-step registration, document upload, and profile verification.
-          </li>
-
-          <li>
-            Built end-to-end KYC verification workflows: Aadhaar/PAN validation, live document capture, status tracking, and admin review panels.
-          </li>
-
-          <li>
-            Created responsive banking dashboards covering account summaries, transaction logs, and NEFT/RTGS/IMPS fund transfers.
-          </li>
-
-          <li>
-            Implemented payment gateway integration — initiation, callback handling, and reconciliation views.
-          </li>
-
-          <li>
-            Delivered auto-debit (NACH/eNACH), loan/EMI tracking, and AML/compliance audit modules.
-          </li>
-
-          <li>
-            Integrated GraphQL APIs for real-time transaction feeds with optimistic UI updates; built timezone-aware scheduling for automated batch jobs.
-          </li>
-
-          <li>
-            Built a reusable Angular component library using Reactive Forms, Angular Material, and strict TypeScript.
-          </li>
-
-        </ul>
-
-      </div>
-
-
-      <!-- Teqheal -->
-
-      <div class="log-item reveal">
-
-        <div class="log-meta">
-          APR 2024 — OCT 2024
-        </div>
-
-        <div class="log-role">
-          Angular Developer
-        </div>
-
-        <div class="log-org">
-
-          <span class="company">
-            Teqheal Solutions
-          </span>
-
-          · Surat, Gujarat
-
-        </div>
-
-        <ul>
-
-          <li>
-            Developed modular ERP dashboards covering inventory, procurement, HR, and financial reporting.
-          </li>
-
-          <li>
-            Implemented role-based access control (RBAC) for multi-level user hierarchies.
-          </li>
-
-          <li>
-            Built a reusable UI component library, reducing development time by ~30%.
-          </li>
-
-          <li>
-            Integrated REST APIs with optimized HTTP interceptors for real-time ERP sync.
-          </li>
-
-          <li>
-            Designed complex reactive forms with multi-level validation and dynamic field rendering.
-          </li>
-
-        </ul>
-
-      </div>
-
-
-      <!-- Mosaic -->
-
-      <div class="log-item reveal">
-
-        <div class="log-meta">
-          JAN 2024 — MAR 2024
-        </div>
-
-        <div class="log-role">
-          Frontend Developer (Contract)
-        </div>
-
-        <div class="log-org">
-
-          <span class="company">
-            Mosaic AI
-          </span>
-
-          · Remote, USA
-
-        </div>
-
-        <ul>
-
-          <li>
-            Developed healthcare and AI-assisted product interfaces for a US-based startup using React.js.
-          </li>
-
-          <li>
-            Built responsive patient data visualization dashboards, appointment scheduling UIs, and clinical report screens.
-          </li>
-
-          <li>
-            Improved UI responsiveness and WCAG accessibility across core product modules.
-          </li>
-
-          <li>
-            Collaborated with US-based teams through Agile sprints and async code reviews.
-          </li>
-
-        </ul>
-
-      </div>
-
-
-      <!-- 7Tech -->
-
-      <div class="log-item reveal">
-
-        <div class="log-meta">
-          AUG 2022 — JAN 2024
-        </div>
-
-        <div class="log-role">
-          Frontend Developer
-        </div>
-
-        <div class="log-org">
-
-          <span class="company">
-            7Tech IT Services
-          </span>
-
-          · Jalgaon, Maharashtra
-
-        </div>
-
-        <ul>
-
-          <li>
-            Developed responsive web applications and reusable UI components using Angular, TypeScript, HTML5, CSS3, and Bootstrap.
-          </li>
-
-          <li>
-            Built and customized responsive email templates and Salesforce Marketing Cloud campaigns using AMPscript.
-          </li>
-
-          <li>
-            Created and maintained CMS-based web content for marketing, education, and e-commerce clients.
-          </li>
-
-          <li>
-            Integrated REST APIs for CRUD operations and real-time sync with custom validation, filters, search, and pagination.
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       PROJECTS
-  ====================================================== -->
-
-  <section id="projects">
-
-    <div class="container">
-
-      <div class="eyebrow reveal">
-        // 03
-      </div>
-
-      <div class="section-title reveal">
-        Selected projects
-      </div>
-
-
-      <div class="row g-4">
-
-        <!-- Project 1 -->
-
-        <div class="col-12 col-md-6 reveal">
-
-          <div class="proj-card">
-
-            <span class="badge-industry">
-              FINTECH &amp; BANKING
-            </span>
-
-            <h3>
-              Indiconnect Banking
-            </h3>
-
-            <p>
-              End-to-end banking UI spanning onboarding, KYC,
-              payments, loans, and compliance, with
-              GraphQL-powered real-time data.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <!-- Project 2 -->
-
-        <div class="col-12 col-md-6 reveal">
-
-          <div class="proj-card">
-
-            <span class="badge-industry">
-              ENTERPRISE / ERP
-            </span>
-
-            <h3>
-              JIH ERP System
-            </h3>
-
-            <p>
-              Multi-tenant ERP dashboard with role-based
-              access control, procurement, HR, and financial
-              reporting.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <!-- Project 3 -->
-
-        <div class="col-12 col-md-6 reveal">
-
-          <div class="proj-card">
-
-            <span class="badge-industry">
-              HEALTHCARE
-            </span>
-
-            <h3>
-              Mosaic AI Health Platform
-            </h3>
-
-            <p>
-              WCAG-accessible React.js dashboards for patient
-              data and appointment scheduling, built for a
-              US healthcare startup.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <!-- Project 4 -->
-
-        <div class="col-12 col-md-6 reveal">
-
-          <div class="proj-card">
-
-            <span class="badge-industry">
-              EDUCATION
-            </span>
-
-            <h3>
-              St. Aloysius Admission System
-            </h3>
-
-            <p>
-              Student admission workflow with merit dashboards,
-              document upload, and integrated fee payments.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       EDUCATION
-  ====================================================== -->
-
-  <section id="education" class="education-section">
-
-    <div class="container">
-
-      <div class="eyebrow reveal">
-        // 04
-      </div>
-
-      <div class="section-title reveal">
-        Education
-      </div>
-
-      <div class="row">
-
-        <div class="col-12 col-lg-8 reveal">
-
-          <!-- MCA -->
-
-          <div class="edu-row">
-
-            <div>
-
-              <div class="deg">
-                MCA — Master of Computer Applications
-              </div>
-
-              <div class="inst">
-                IGNOU (Indira Gandhi National Open University)
-              </div>
-
-            </div>
-
-            <div class="yr">
-              IN PROGRESS · 2026
-            </div>
-
-          </div>
-
-
-          <!-- BSc -->
-
-          <div class="edu-row">
-
-            <div>
-
-              <div class="deg">
-                B.Sc. Information Technology — Grade A
-              </div>
-
-              <div class="inst">
-                North Maharashtra University
-              </div>
-
-            </div>
-
-            <div class="yr">
-              2019
-            </div>
-
-          </div>
-
-
-          <!-- Diploma -->
-
-          <div class="edu-row">
-
-            <div>
-
-              <div class="deg">
-                Diploma — Computer Hardware &amp; Networking
-              </div>
-
-              <div class="inst">
-                Computer Hardware &amp; Networking
-              </div>
-
-            </div>
-
-            <div class="yr">
-              2015
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       CONTACT
-  ====================================================== -->
-
-  <section id="contact" class="contact-section">
-
-    <div class="container text-center">
-
-      <div class="eyebrow reveal">
-        // 05
-      </div>
-
-      <div class="section-title reveal">
-        Let's build something reliable
-      </div>
-
-      <p class="mb-4 reveal contact-description">
-
-        Open to frontend and full-stack roles across fintech,
-        healthcare, and enterprise product teams.
-
+      <div class="eyebrow reveal">01 · MULTI-DOMAIN EXPERTISE</div>
+      <h2 class="section-title reveal">Not Only Fintech — 5 Industry Domains</h2>
+      <p class="section-subtitle reveal">
+        Tailored engineering across <strong>Fintech</strong>, <strong>Medical</strong>, <strong>Transport</strong>,
+        <strong>ERP</strong>, and <strong>Education</strong> platforms,
+        powered by <strong>Angular v11–21</strong> and <strong>Ionic Mobile</strong> architectures.
       </p>
 
+      <div class="row g-4">
+        <!-- Domain 1: Fintech & Core Banking -->
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="pillar-card">
+            <div class="pillar-icon-box">
+              <i class="bi bi-bank2"></i>
+            </div>
+            <h3>1. Fintech &amp; Core Banking</h3>
+            <p>
+              Designed regulatory-compliant customer onboarding pipelines with dynamic multi-step reactive forms,
+              Aadhaar/PAN verification, and live camera OCR capture.
+            </p>
+            <ul class="pillar-feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Dynamic KYC onboarding with @ngx-formly</li>
+              <li><i class="bi bi-check-circle-fill"></i> AG Grid high-throughput real-time ledgers</li>
+              <li><i class="bi bi-check-circle-fill"></i> NEFT, RTGS &amp; IMPS fund transfer interfaces</li>
+              <li><i class="bi bi-check-circle-fill"></i> Automated NACH / eNACH recurring debits</li>
+              <li><i class="bi bi-check-circle-fill"></i> Luxon IST/UTC timezone settlement cutoffs</li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="contact-buttons d-flex flex-wrap justify-content-center gap-3 reveal">
+        <!-- Domain 2: Medical & Healthcare -->
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="pillar-card medical">
+            <div class="pillar-icon-box">
+              <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <h3>2. Medical &amp; Healthcare</h3>
+            <p>
+              Engineered patient health record dashboards, interactive diagnostic report screens, and medical
+              appointment scheduling interfaces.
+            </p>
+            <ul class="pillar-feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Patient electronic health records (EHR/EMR)</li>
+              <li><i class="bi bi-check-circle-fill"></i> Clinical charts &amp; lab report data visualizations</li>
+              <li><i class="bi bi-check-circle-fill"></i> Doctor appointment booking &amp; calendar slots</li>
+              <li><i class="bi bi-check-circle-fill"></i> WCAG 2.1 AA accessibility &amp; responsive UX</li>
+              <li><i class="bi bi-check-circle-fill"></i> US startup experience with Mosaic AI</li>
+            </ul>
+          </div>
+        </div>
 
-        <a
-          href="mailto:sknadeem713@gmail.com"
-          class="contact-btn primary">
+        <!-- Domain 3: Transport & Telemetry -->
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="pillar-card transport">
+            <div class="pillar-icon-box">
+              <i class="bi bi-truck-front-fill"></i>
+            </div>
+            <h3>3. Transport &amp; Telemetry</h3>
+            <p>
+              Architected real-time fleet GPS tracking dashboards and vehicle telemetry monitors with interactive
+              mapping and live coordinates.
+            </p>
+            <ul class="pillar-feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Real-time GPS mapping with Leaflet &amp; GeoJSON</li>
+              <li><i class="bi bi-check-circle-fill"></i> Live WebSocket coordinates &amp; telemetry streams</li>
+              <li><i class="bi bi-check-circle-fill"></i> Speed, fuel consumption &amp; route analytics</li>
+              <li><i class="bi bi-check-circle-fill"></i> Geofencing breach alerts &amp; historical playback</li>
+              <li><i class="bi bi-check-circle-fill"></i> paj-gps production telemetry frontend</li>
+            </ul>
+          </div>
+        </div>
 
-          <i class="bi bi-envelope"></i>
+        <!-- Domain 4: ERP & Enterprise Systems -->
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="pillar-card erp">
+            <div class="pillar-icon-box">
+              <i class="bi bi-buildings-fill"></i>
+            </div>
+            <h3>4. ERP &amp; Enterprise Systems</h3>
+            <p>
+              Delivered multi-tenant ERP platforms covering inventory, procurement, human resources hierarchies, and
+              complex financial reporting.
+            </p>
+            <ul class="pillar-feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Granular Role-Based Access Control (RBAC)</li>
+              <li><i class="bi bi-check-circle-fill"></i> Dynamic multi-level reactive form engines</li>
+              <li><i class="bi bi-check-circle-fill"></i> Inventory, purchase order &amp; invoice tracking</li>
+              <li><i class="bi bi-check-circle-fill"></i> Reusable UI library reducing cycle time by ~30%</li>
+              <li><i class="bi bi-check-circle-fill"></i> Teqheal Solutions &amp; JIH ERP delivery</li>
+            </ul>
+          </div>
+        </div>
 
-          sknadeem713@gmail.com
+        <!-- Domain 5: Education & Admissions -->
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="pillar-card education">
+            <div class="pillar-icon-box">
+              <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            <h3>5. Education &amp; Admissions</h3>
+            <p>
+              Built digital student admission workflows, merit rank evaluation dashboards, document verification
+              pipelines, and fee payment systems.
+            </p>
+            <ul class="pillar-feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Multi-stage student admission &amp; KYC upload</li>
+              <li><i class="bi bi-check-circle-fill"></i> Merit rank calculation &amp; seat allocation tables</li>
+              <li><i class="bi bi-check-circle-fill"></i> Integrated online tuition &amp; fee gateways</li>
+              <li><i class="bi bi-check-circle-fill"></i> Admin document scrutiny &amp; approval workflows</li>
+              <li><i class="bi bi-check-circle-fill"></i> St. Aloysius Admission Platform delivery</li>
+            </ul>
+          </div>
+        </div>
 
-        </a>
-
-
-        <a
-          href="tel:+917709939297"
-          class="contact-btn">
-
-          <i class="bi bi-telephone"></i>
-
-          +91 7709939297
-
-        </a>
-
-
-        <a
-          href="https://linkedin.com/in/sknadeem713"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact-btn">
-
-          <i class="bi bi-linkedin"></i>
-
-          linkedin.com/in/sknadeem713
-
-        </a>
-
+        <!-- Domain 6: Enterprise CMS & SFMC -->
+        <div class="col-12 col-md-6 col-lg-4 reveal">
+          <div class="pillar-card cms">
+            <div class="pillar-icon-box">
+              <i class="bi bi-file-earmark-richtext"></i>
+            </div>
+            <h3>Enterprise CMS &amp; SFMC</h3>
+            <p>
+              CMS authoring across rich text editors, multi-lingual localization, and Salesforce Marketing Cloud (SFMC)
+              with dynamic AMPscript.
+            </p>
+            <ul class="pillar-feature-list">
+              <li><i class="bi bi-check-circle-fill"></i> Rich editors: ngx-quill, TinyMCE, CKEditor 5</li>
+              <li><i class="bi bi-check-circle-fill"></i> SFMC email campaigns with dynamic AMPscript</li>
+              <li><i class="bi bi-check-circle-fill"></i> Multi-language portals via @ngx-translate/core</li>
+              <li><i class="bi bi-check-circle-fill"></i> Drag-and-drop dashboard grids (angular-gridster2)</li>
+              <li><i class="bi bi-check-circle-fill"></i> 7Tech IT Services enterprise CMS delivery</li>
+            </ul>
+          </div>
+        </div>
       </div>
-
     </div>
-
   </section>
 
+  <!-- =====================================================
+       INTERACTIVE LIVE FINTECH & AG GRID DEMO
+  ====================================================== -->
+  <section id="demo"
+    style="background: var(--panel-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-3">
+        <div>
+          <div class="eyebrow reveal">02 · INTERACTIVE PLAYGROUND</div>
+          <h2 class="section-title reveal mb-1">Live Fintech &amp; AG Grid Simulator</h2>
+          <p class="text-secondary reveal mb-0">Experience real-time filtering, simulation, SweetAlert2 dialogs, and
+            instant exports.</p>
+        </div>
+        <div class="reveal mt-3 mt-md-0">
+          <button class="contact-btn primary" onclick="simulatePaymentTransaction()">
+            <i class="bi bi-plus-circle-fill"></i> Simulate New Payment
+          </button>
+          <button class="contact-btn" onclick="exportSimulatorData()">
+            <i class="bi bi-file-earmark-excel-fill text-success"></i> Export XLSX
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-container reveal">
+        <!-- Top status bar -->
+        <div class="demo-topbar">
+          <div class="demo-account-summary">
+            <div>
+              <span class="mono" style="font-size: 0.72rem; color: var(--ink-dim); text-transform: uppercase;">Primary
+                Core Account</span>
+              <div class="demo-balance" id="account-balance">&#8377; 14,82,500.00</div>
+            </div>
+            <div class="d-none d-sm-block" style="border-left: 1px solid var(--line); padding-left: 16px;">
+              <span class="mono" style="font-size: 0.72rem; color: var(--ink-dim);">Status</span>
+              <div class="mono" style="font-size: 0.82rem; color: var(--verified);"><i
+                  class="bi bi-record-circle-fill"></i> Live Settlement API</div>
+            </div>
+          </div>
+
+          <div class="demo-controls">
+            <input type="text" id="gridSearchInput" class="demo-search-input" placeholder="Search Txn ID, party..."
+              onkeyup="filterDemoGrid()">
+            <button class="demo-filter-btn active" onclick="setGridCategory('ALL', this)">All (6)</button>
+            <button class="demo-filter-btn" onclick="setGridCategory('NEFT', this)">NEFT/RTGS</button>
+            <button class="demo-filter-btn" onclick="setGridCategory('NACH', this)">NACH</button>
+            <button class="demo-filter-btn" onclick="setGridCategory('KYC', this)">KYC</button>
+          </div>
+        </div>
+
+        <!-- Data Grid Table -->
+        <div class="demo-grid-wrapper">
+          <table class="demo-grid-table" id="fintechTable">
+            <thead>
+              <tr>
+                <th><i class="bi bi-hash"></i> Txn Reference</th>
+                <th>Counterparty / Beneficiary</th>
+                <th>Channel</th>
+                <th>Timestamp (Luxon IST)</th>
+                <th>Amount (INR)</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="demoGridBody">
+              <!-- Row 1 -->
+              <tr data-type="NEFT">
+                <td><strong class="text-white">TXN-984210</strong></td>
+                <td>HDFC Corporate Treasury</td>
+                <td><span class="badge-chip">NEFT BATCH</span></td>
+                <td>2026-10-28 14:32:05</td>
+                <td class="text-success font-monospace">+ &#8377; 1,45,000.00</td>
+                <td><span class="status-badge-settled"><i class="bi bi-check2"></i> SETTLED</span></td>
+                <td>
+                  <button class="btn btn-sm btn-outline-primary py-0 px-2" style="font-size: 0.72rem;"
+                    onclick="viewTxnDetails('TXN-984210', 'HDFC Corporate Treasury', '&#8377; 1,45,000.00', 'SETTLED')">
+                    Inspect
+                  </button>
+                </td>
+              </tr>
+              <!-- Row 2 -->
+              <tr data-type="NACH">
+                <td><strong class="text-white">TXN-984209</strong></td>
+                <td>Bajaj Finance Auto-Debit</td>
+                <td><span class="badge-chip">eNACH MANDATE</span></td>
+                <td>2026-10-28 12:15:20</td>
+                <td class="text-danger font-monospace">- &#8377; 24,800.00</td>
+                <td><span class="status-badge-settled"><i class="bi bi-check2"></i> CLEARED</span></td>
+                <td>
+                  <button class="btn btn-sm btn-outline-primary py-0 px-2" style="font-size: 0.72rem;"
+                    onclick="viewTxnDetails('TXN-984209', 'Bajaj Finance Auto-Debit', '&#8377; 24,800.00', 'CLEARED')">
+                    Inspect
+                  </button>
+                </td>
+              </tr>
+              <!-- Row 3 -->
+              <tr data-type="NEFT">
+                <td><strong class="text-white">TXN-984208</strong></td>
+                <td>ICICI Merchant Settlements</td>
+                <td><span class="badge-chip">RTGS INSTANT</span></td>
+                <td>2026-10-28 11:04:12</td>
+                <td class="text-success font-monospace">+ &#8377; 3,80,000.00</td>
+                <td><span class="status-badge-settled"><i class="bi bi-check2"></i> SETTLED</span></td>
+                <td>
+                  <button class="btn btn-sm btn-outline-primary py-0 px-2" style="font-size: 0.72rem;"
+                    onclick="viewTxnDetails('TXN-984208', 'ICICI Merchant Settlements', '&#8377; 3,80,000.00', 'SETTLED')">
+                    Inspect
+                  </button>
+                </td>
+              </tr>
+              <!-- Row 4 -->
+              <tr data-type="KYC">
+                <td><strong class="text-white">KYC-774011</strong></td>
+                <td>Enterprise Account Onboarding</td>
+                <td><span class="badge-chip">AADHAAR / PAN</span></td>
+                <td>2026-10-28 10:48:00</td>
+                <td class="text-secondary font-monospace">—</td>
+                <td><span class="status-badge-pending"><i class="bi bi-clock-history"></i> IN VERIFICATION</span></td>
+                <td>
+                  <button class="btn btn-sm btn-outline-warning py-0 px-2" style="font-size: 0.72rem;"
+                    onclick="triggerKycSimulation()">
+                    Review KYC
+                  </button>
+                </td>
+              </tr>
+              <!-- Row 5 -->
+              <tr data-type="NACH">
+                <td><strong class="text-white">TXN-984205</strong></td>
+                <td>Axis Mutual Fund SIP</td>
+                <td><span class="badge-chip">NACH RECURRING</span></td>
+                <td>2026-10-28 09:30:15</td>
+                <td class="text-danger font-monospace">- &#8377; 15,000.00</td>
+                <td><span class="status-badge-settled"><i class="bi bi-check2"></i> EXECUTED</span></td>
+                <td>
+                  <button class="btn btn-sm btn-outline-primary py-0 px-2" style="font-size: 0.72rem;"
+                    onclick="viewTxnDetails('TXN-984205', 'Axis Mutual Fund SIP', '&#8377; 15,000.00', 'EXECUTED')">
+                    Inspect
+                  </button>
+                </td>
+              </tr>
+              <!-- Row 6 -->
+              <tr data-type="NEFT">
+                <td><strong class="text-white">TXN-984198</strong></td>
+                <td>Overseas Wire Conversion</td>
+                <td><span class="badge-chip">SWIFT / AML</span></td>
+                <td>2026-10-28 08:14:40</td>
+                <td class="text-warning font-monospace">&#8377; 5,20,000.00</td>
+                <td><span class="status-badge-flagged"><i class="bi bi-shield-exclamation"></i> AML AUDIT</span></td>
+                <td>
+                  <button class="btn btn-sm btn-outline-danger py-0 px-2" style="font-size: 0.72rem;"
+                    onclick="viewTxnDetails('TXN-984198', 'Overseas Wire Conversion', '&#8377; 5,20,000.00', 'AML AUDIT')">
+                    Inspect
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       ENTERPRISE ANGULAR LIBRARY ECOSYSTEM & PRIORITY 15
+  ====================================================== -->
+  <section id="stack">
+    <div class="container">
+      <div class="eyebrow reveal">03 · PRODUCTION MASTERY</div>
+      <h2 class="section-title reveal">Enterprise Angular Ecosystem &amp; Priority 15 Stack</h2>
+      <p class="section-subtitle reveal">
+        A deep, production-tested toolkit spanning 11 specialized categories, curated for enterprise scalability,
+        banking compliance, and zero-defect delivery across <strong>Angular v11 to v21</strong>.
+      </p>
+
+      <!-- Priority 15 Highlight Box -->
+      <div class="top15-banner reveal">
+        <div class="row align-items-center g-3">
+          <div class="col-12 col-lg-8">
+            <h4 class="mb-2 text-white"><i class="bi bi-trophy-fill text-warning me-2"></i> The Priority 15 Core
+              Production Stack</h4>
+            <p class="mb-0 text-light" style="font-size: 0.92rem; opacity: 0.9;">
+              The essential libraries powering my everyday multi-domain and enterprise workflows:
+              <strong>AG Grid</strong> (tables), <strong>Angular Material</strong>, <strong>PrimeNG</strong>,
+              <strong>NgRx</strong> (central state), <strong>RxJS</strong> (reactive streams), <strong>Apollo
+                Angular</strong> (GraphQL), <strong>ngx-formly</strong> (dynamic KYC forms), <strong>ng-select</strong>,
+              <strong>ApexCharts</strong>, <strong>SweetAlert2</strong>, <strong>ngx-toastr</strong>,
+              <strong>Luxon</strong> (timezone accuracy), <strong>xlsx</strong>, <strong>jsPDF</strong>, and
+              <strong>Playwright</strong> (E2E testing).
+            </p>
+          </div>
+          <div class="col-12 col-lg-4 text-lg-end">
+            <button class="contact-btn primary" onclick="filterByTop15()">
+              <i class="bi bi-star-fill text-warning"></i> View Top 15 Stack Only
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Pills -->
+      <div class="filter-pills-bar reveal" id="libFilterBar">
+        <button class="lib-filter-pill active" onclick="filterLibs('all', this)">All Categories (35+)</button>
+        <button class="lib-filter-pill featured-pill" onclick="filterLibs('top15', this)"><i
+            class="bi bi-star-fill"></i> Priority 15</button>
+        <button class="lib-filter-pill" onclick="filterLibs('grid', this)">Data Grid &amp; Tables</button>
+        <button class="lib-filter-pill" onclick="filterLibs('ui', this)">UI Components</button>
+        <button class="lib-filter-pill" onclick="filterLibs('charts', this)">Charts &amp; Data Viz</button>
+        <button class="lib-filter-pill" onclick="filterLibs('forms', this)">Forms &amp; Validation</button>
+        <button class="lib-filter-pill" onclick="filterLibs('dialogs', this)">Alerts &amp; Dialogs</button>
+        <button class="lib-filter-pill" onclick="filterLibs('state', this)">State &amp; APIs</button>
+        <button class="lib-filter-pill" onclick="filterLibs('security', this)">Security &amp; Auth</button>
+        <button class="lib-filter-pill" onclick="filterLibs('files', this)">File &amp; PDF</button>
+        <button class="lib-filter-pill" onclick="filterLibs('utils', this)">Date &amp; Utilities</button>
+        <button class="lib-filter-pill" onclick="filterLibs('cms', this)">CMS, Maps &amp; Editors</button>
+        <button class="lib-filter-pill" onclick="filterLibs('test', this)">Testing</button>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="row g-3" id="libCardsGrid">
+        <!-- 1. AG Grid -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="grid top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">AG Grid</span>
+                <span class="lib-rank gold">★ Top 15 (#1)</span>
+              </div>
+              <div class="lib-desc">
+                High-performance transaction grids, virtualized rendering, sorting, grouping, pinned columns &amp; Excel
+                streaming.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Data Grid &amp; Tables</div>
+          </div>
+        </div>
+
+        <!-- 2. Angular Material -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="ui dialogs top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">Angular Material</span>
+                <span class="lib-rank gold">★ Top 15 (#2)</span>
+              </div>
+              <div class="lib-desc">
+                Standardized enterprise UI components, dialogs, form fields, date pickers, accessible toolbars &amp; CDK
+                drag-drop.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> UI Components</div>
+          </div>
+        </div>
+
+        <!-- 3. PrimeNG -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="ui grid top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">PrimeNG Table &amp; UI</span>
+                <span class="lib-rank gold">★ Top 15 (#3)</span>
+              </div>
+              <div class="lib-desc">
+                Rich data tables with column toggling, multi-sort, tree views, calendar components, and responsive
+                widgets.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> UI &amp; Data Grid</div>
+          </div>
+        </div>
+
+        <!-- 4. NgRx -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="state top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">NgRx (@ngrx/store)</span>
+                <span class="lib-rank gold">★ Top 15 (#4)</span>
+              </div>
+              <div class="lib-desc">
+                Centralized Redux state management, side effects (@ngrx/effects), entity selectors, and deterministic
+                state transitions.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> State Management</div>
+          </div>
+        </div>
+
+        <!-- 5. RxJS -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="state top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">RxJS</span>
+                <span class="lib-rank gold">★ Top 15 (#5)</span>
+              </div>
+              <div class="lib-desc">
+                Reactive streams, operator pipelines (switchMap, debounceTime, combineLatest), and event handling.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Reactive Streams</div>
+          </div>
+        </div>
+
+        <!-- 6. Apollo Angular -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="state top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">Apollo Angular</span>
+                <span class="lib-rank gold">★ Top 15 (#6)</span>
+              </div>
+              <div class="lib-desc">
+                GraphQL client integration, caching, real-time subscriptions, and optimistic mutations for transaction
+                feeds.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> GraphQL &amp; APIs</div>
+          </div>
+        </div>
+
+        <!-- 7. ngx-formly -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="forms top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">@ngx-formly/core</span>
+                <span class="lib-rank gold">★ Top 15 (#7)</span>
+              </div>
+              <div class="lib-desc">
+                Dynamic, configuration-driven JSON form engine. The gold standard for dynamic banking KYC and onboarding
+                forms.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Dynamic Forms</div>
+          </div>
+        </div>
+
+        <!-- 8. ng-select -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="forms top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">@ng-select/ng-select</span>
+                <span class="lib-rank gold">★ Top 15 (#8)</span>
+              </div>
+              <div class="lib-desc">
+                Searchable, virtual-scrolled dropdowns, multi-select, and remote API autocomplete for account selection.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Forms &amp; Inputs</div>
+          </div>
+        </div>
+
+        <!-- 9. ApexCharts -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="charts top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">ApexCharts</span>
+                <span class="lib-rank gold">★ Top 15 (#9)</span>
+              </div>
+              <div class="lib-desc">
+                Interactive financial charts, area gradients, candlestick series, and portfolio performance dashboards.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Charts &amp; Data Viz</div>
+          </div>
+        </div>
+
+        <!-- 10. SweetAlert2 -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="dialogs top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">SweetAlert2</span>
+                <span class="lib-rank gold">★ Top 15 (#10)</span>
+              </div>
+              <div class="lib-desc">
+                Beautiful, animated confirmation modals, payment success dialogs, and compliance prompt popups.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Dialogs &amp; Alerts</div>
+          </div>
+        </div>
+
+        <!-- 11. ngx-toastr -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="dialogs top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">ngx-toastr</span>
+                <span class="lib-rank gold">★ Top 15 (#11)</span>
+              </div>
+              <div class="lib-desc">
+                Non-blocking toast notifications for transaction states, WebSocket updates, and server responses.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Notifications</div>
+          </div>
+        </div>
+
+        <!-- 12. Luxon -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="utils top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">Luxon</span>
+                <span class="lib-rank gold">★ Top 15 (#12)</span>
+              </div>
+              <div class="lib-desc">
+                Timezone-aware date calculations, critical for banking cut-off times (IST, UTC, EST) and batch
+                processing.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Timezones &amp; Dates</div>
+          </div>
+        </div>
+
+        <!-- 13. xlsx -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="files top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">xlsx (SheetJS)</span>
+                <span class="lib-rank gold">★ Top 15 (#13)</span>
+              </div>
+              <div class="lib-desc">
+                Client-side Excel spreadsheet reading and generation for statements, audit reports, and ledger exports.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> File Processing</div>
+          </div>
+        </div>
+
+        <!-- 14. jsPDF & pdfmake -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="files top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">jsPDF / pdfmake</span>
+                <span class="lib-rank gold">★ Top 15 (#14)</span>
+              </div>
+              <div class="lib-desc">
+                Instant client-side PDF invoice, transaction receipt, and bank statement generation.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> PDF Generation</div>
+          </div>
+        </div>
+
+        <!-- 15. Playwright -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="test top15">
+          <div class="lib-card top15">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">@playwright/test</span>
+                <span class="lib-rank gold">★ Top 15 (#15)</span>
+              </div>
+              <div class="lib-desc">
+                Modern end-to-end browser automation and regression testing across core banking and multi-domain flows.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> E2E Testing</div>
+          </div>
+        </div>
+
+        <!-- Additional Category Items -->
+        <!-- TanStack Table -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="grid">
+          <div class="lib-card">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">TanStack Table</span>
+                <span class="lib-rank">Grid</span>
+              </div>
+              <div class="lib-desc">Headless table logic for complete UI customization and lightweight table
+                architectures.</div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Data Grid &amp; Tables</div>
+          </div>
+        </div>
+
+        <!-- Handsontable & Tabulator -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="grid">
+          <div class="lib-card">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">Handsontable &amp; Tabulator</span>
+                <span class="lib-rank">Grid</span>
+              </div>
+              <div class="lib-desc">Excel-like editable grids and interactive tabular data manipulation.</div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Data Grid &amp; Tables</div>
+          </div>
+        </div>
+
+        <!-- Taiga UI & NG Bootstrap -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="ui">
+          <div class="lib-card">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">Taiga UI &amp; NG Bootstrap</span>
+                <span class="lib-rank">UI</span>
+              </div>
+              <div class="lib-desc">Modular UI kits with accessible modals, tooltips, accordions, and design token
+                integration.</div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> UI Components</div>
+          </div>
+        </div>
+
+        <!-- Chart.js & ECharts -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="charts">
+          <div class="lib-card">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">Chart.js &amp; ECharts</span>
+                <span class="lib-rank">Charts</span>
+              </div>
+              <div class="lib-desc">Advanced multi-axis, radar, doughnut, and interactive analytics charts (ng2-charts,
+                ngx-echarts).</div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Charts &amp; Data Viz</div>
+          </div>
+        </div>
+
+        <!-- ngx-mask & ng-otp-input -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="forms">
+          <div class="lib-card">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">ngx-mask &amp; ng-otp-input</span>
+                <span class="lib-rank">Forms</span>
+              </div>
+              <div class="lib-desc">Input masks for phone, currency amount, PAN cards, and banking OTP verification
+                screens.</div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Forms &amp; Validation</div>
+          </div>
+        </div>
+
+        <!-- NGXS & SignalR -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="state">
+          <div class="lib-card">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">NGXS &amp; SignalR</span>
+                <span class="lib-rank">Realtime</span>
+              </div>
+              <div class="lib-desc">Decorator-based state management with @microsoft/signalr for live socket streaming.
+              </div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> State Management</div>
+          </div>
+        </div>
+
+        <!-- OAuth 2.0 & CASL -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="security">
+          <div class="lib-card">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">angular-oauth2-oidc &amp; CASL</span>
+                <span class="lib-rank">Security</span>
+              </div>
+              <div class="lib-desc">OpenID Connect authentication, Keycloak integration, and UI ability checks via
+                @casl/angular.</div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Security &amp; Auth</div>
+          </div>
+        </div>
+
+        <!-- ngx-quill, TinyMCE & CKEditor -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="cms">
+          <div class="lib-card">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">ngx-quill, TinyMCE &amp; CKEditor</span>
+                <span class="lib-rank">CMS</span>
+              </div>
+              <div class="lib-desc">Enterprise WYSIWYG rich text authoring for content publishing, emails, and CMS
+                templates.</div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> CMS &amp; Editors</div>
+          </div>
+        </div>
+
+        <!-- Leaflet & Google Maps -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="cms">
+          <div class="lib-card">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">Leaflet &amp; Google Maps</span>
+                <span class="lib-rank">Maps</span>
+              </div>
+              <div class="lib-desc">Interactive geo-mapping, branch locators, and real-time fleet GPS tracking
+                interfaces.</div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Maps &amp; Geolocation</div>
+          </div>
+        </div>
+
+        <!-- Jest & Cypress -->
+        <div class="col-12 col-sm-6 col-lg-4 lib-item" data-cat="test">
+          <div class="lib-card">
+            <div>
+              <div class="lib-top">
+                <span class="lib-name">Jest, Vitest &amp; Cypress</span>
+                <span class="lib-rank">Testing</span>
+              </div>
+              <div class="lib-desc">Unit testing, mock services (ng-mocks), and end-to-end automated UI regression
+                suites.</div>
+            </div>
+            <div class="lib-category-tag"><i class="bi bi-tag-fill me-1"></i> Testing &amp; QA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       EXPERIENCE LOG (4.3+ YEARS DETAILED)
+  ====================================================== -->
+  <section id="experience" class="experience-section">
+    <div class="container">
+      <div class="eyebrow reveal">04 · CAREER TRAJECTORY</div>
+      <h2 class="section-title reveal">Production Experience (4.3+ Years)</h2>
+      <p class="section-subtitle reveal">
+        Demonstrated history building fintech banking platforms, multi-tenant enterprise ERPs, and international
+        healthcare portals.
+      </p>
+
+      <div class="timeline-wrap">
+        <!-- 1. Indiconnect (Current) - Angular Developer -->
+        <div class="timeline-item current reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-role">Angular Developer</div>
+              <div class="timeline-date">DEC 2024 — PRESENT <span class="badge-chip pulse-verified ms-2"><span
+                    class="pulse-dot"></span> CURRENT</span></div>
+            </div>
+            <div class="timeline-org">
+              <i class="bi bi-buildings-fill"></i> Indiconnect Fintech &amp; Banking · Pune, Maharashtra
+            </div>
+            <ul class="timeline-bullets">
+              <li>Architected and delivered secure core banking UI modules for customer onboarding, Aadhaar/PAN instant
+                verification, and dynamic KYC review pipelines.</li>
+              <li>Engineered high-frequency transaction log tables using <strong>AG Grid</strong> with server-side
+                pagination, multi-column filtering, and instantaneous Excel (.xlsx) statement exports.</li>
+              <li>Built real-time fund transfer dashboards supporting NEFT, RTGS, and IMPS flows with OTP authentication
+                and automated NACH / eNACH recurring debits.</li>
+              <li>Integrated payment gateway reconciliation interfaces and GraphQL APIs with optimistic UI caching and
+                timezone-aware schedule processing via <strong>Luxon</strong>.</li>
+              <li>Implemented a reusable Angular component design system utilizing Reactive Forms, Angular Material, and
+                strict TypeScript patterns.</li>
+            </ul>
+            <div class="timeline-tech-tags">
+              <span class="timeline-tag">Angular v18</span>
+              <span class="timeline-tag">AG Grid Enterprise</span>
+              <span class="timeline-tag">Dynamic KYC</span>
+              <span class="timeline-tag">Reactive Forms</span>
+              <span class="timeline-tag">Apollo GraphQL</span>
+              <span class="timeline-tag">SweetAlert2</span>
+              <span class="timeline-tag">Luxon</span>
+              <span class="timeline-tag">RxJS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Teqheal Solutions - Angular Developer -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-role">Angular Developer</div>
+              <div class="timeline-date">APR 2024 — OCT 2024</div>
+            </div>
+            <div class="timeline-org">
+              <i class="bi bi-buildings-fill"></i> Teqheal Solutions · Surat, Gujarat
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed modular enterprise ERP dashboards covering inventory control, procurement, HR hierarchies,
+                and complex financial reporting.</li>
+              <li>Enforced strict Role-Based Access Control (RBAC) across multi-tenant admin dashboards and user
+                permission tiers.</li>
+              <li>Engineered complex reactive forms with asynchronous validations and dynamic field rendering, cutting
+                redundant code by 30%.</li>
+              <li>Created HTTP interceptors with auto-retry, token refresh, and centralized error logging for smooth ERP
+                data synchronization.</li>
+            </ul>
+            <div class="timeline-tech-tags">
+              <span class="timeline-tag">Angular</span>
+              <span class="timeline-tag">TypeScript</span>
+              <span class="timeline-tag">RBAC</span>
+              <span class="timeline-tag">ERP Architecture</span>
+              <span class="timeline-tag">REST APIs</span>
+              <span class="timeline-tag">Bootstrap 5</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Mosaic AI - Frontend Developer -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-role">Frontend Developer (Contract)</div>
+              <div class="timeline-date">JAN 2024 — MAR 2024</div>
+            </div>
+            <div class="timeline-org">
+              <i class="bi bi-globe2"></i> Mosaic AI · Remote, USA
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed healthcare and patient data visualization dashboards for a US-based product team.</li>
+              <li>Engineered appointment scheduling calendars and clinical record views adhering strictly to WCAG 2.1 AA
+                accessibility standards.</li>
+              <li>Collaborated across international time zones in Agile sprints with asynchronous code reviews and
+                automated CI/CD checks.</li>
+            </ul>
+            <div class="timeline-tech-tags">
+              <span class="timeline-tag">React.js</span>
+              <span class="timeline-tag">Healthcare UI</span>
+              <span class="timeline-tag">WCAG 2.1 AA</span>
+              <span class="timeline-tag">Chart.js</span>
+              <span class="timeline-tag">Agile / Scrum</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 7Tech IT Services - Frontend & CMS Developer -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div class="timeline-role">Frontend &amp; CMS Developer</div>
+              <div class="timeline-date">AUG 2022 — JAN 2024</div>
+            </div>
+            <div class="timeline-org">
+              <i class="bi bi-buildings-fill"></i> 7Tech IT Services · Jalgaon, Maharashtra
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed responsive enterprise web applications and reusable UI components using Angular, TypeScript,
+                HTML5, CSS3, and Bootstrap.</li>
+              <li>Crafted and maintained enterprise CMS-based web content for marketing, education, and e-commerce
+                clients.</li>
+              <li>Built and customized responsive email templates and marketing campaigns in Salesforce Marketing Cloud
+                (SFMC) utilizing dynamic AMPscript.</li>
+              <li>Implemented RESTful API integrations with client-side caching, search filters, pagination, and form
+                validation routines.</li>
+            </ul>
+            <div class="timeline-tech-tags">
+              <span class="timeline-tag">Angular</span>
+              <span class="timeline-tag">CMS Portals</span>
+              <span class="timeline-tag">SFMC / AMPscript</span>
+              <span class="timeline-tag">JavaScript ES6+</span>
+              <span class="timeline-tag">Bootstrap</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SELECTED PROJECTS & GITHUB SHOWCASE
+  ====================================================== -->
+  <section id="projects">
+    <div class="container">
+      <div class="eyebrow reveal">05 · FEATURED WORK</div>
+      <h2 class="section-title reveal">Selected Projects &amp; Repositories</h2>
+      <p class="section-subtitle reveal">
+        A preview of production implementations and open-source contributions available on GitHub.
+      </p>
+
+      <!-- GitHub Callout Banner -->
+      <div class="github-profile-banner mb-5 reveal">
+        <div class="d-flex align-items-center gap-3">
+          <img src="https://avatars.githubusercontent.com/u/147946016?v=4" alt="GitHub Profile" class="github-avatar">
+          <div>
+            <h4 class="mb-1 text-white">shaikh nadim (@Sknadim713)</h4>
+            <p class="mb-0 text-secondary" style="font-size: 0.9rem;">
+              Angular &amp; Mean Stack Developer · Open Source Contributor
+            </p>
+          </div>
+        </div>
+        <div>
+          <a href="https://github.com/Sknadim713" target="_blank" rel="noopener noreferrer" class="contact-btn github">
+            <i class="bi bi-github"></i> Visit github.com/Sknadim713
+          </a>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Project 1: AG Grid Angular Repository -->
+        <div class="col-12 col-md-6 reveal">
+          <div class="proj-card">
+            <div>
+              <span class="proj-tag">DATA GRID &amp; PERFORMANCE</span>
+              <h3>ag-grid-angular</h3>
+              <p>
+                Production-grade data grid implementation in Angular featuring column grouping, virtual scrolling,
+                advanced filter popups, and high-throughput real-time updates.
+              </p>
+            </div>
+            <div class="proj-footer">
+              <span class="mono" style="font-size: 0.76rem; color: var(--ink-dim);">Angular · AG Grid</span>
+              <div class="proj-links">
+                <a href="https://github.com/Sknadim713/ag-grid-angular" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i> View Repo <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Indiconnect Banking Portal -->
+        <div class="col-12 col-md-6 reveal">
+          <div class="proj-card">
+            <div>
+              <span class="proj-tag">FINTECH &amp; BANKING</span>
+              <h3>Indiconnect Banking Platform</h3>
+              <p>
+                Full-suite digital banking portal spanning customer onboarding, KYC document verification, NEFT/RTGS
+                fund transfers, automated NACH debits, and real-time transaction ledger.
+              </p>
+            </div>
+            <div class="proj-footer">
+              <span class="mono" style="font-size: 0.76rem; color: var(--ink-dim);">Angular · NgRx · GraphQL</span>
+              <div class="proj-links">
+                <a href="#demo" onclick="triggerKycSimulation()">
+                  <i class="bi bi-play-circle"></i> Try Demo <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: paj-gps Fleet Tracker -->
+        <div class="col-12 col-md-6 reveal">
+          <div class="proj-card">
+            <div>
+              <span class="proj-tag">TELEMETRY &amp; MAPS</span>
+              <h3>paj-gps Fleet Tracking UI</h3>
+              <p>
+                Real-time vehicle GPS telemetry dashboard utilizing Leaflet mapping, live WebSocket coordinates,
+                geofencing status, and speed analytics.
+              </p>
+            </div>
+            <div class="proj-footer">
+              <span class="mono" style="font-size: 0.76rem; color: var(--ink-dim);">TypeScript · Leaflet ·
+                GeoJSON</span>
+              <div class="proj-links">
+                <a href="https://github.com/Sknadim713/paj-gps" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i> View Repo <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Klearstack Enterprise Frontend -->
+        <div class="col-12 col-md-6 reveal">
+          <div class="proj-card">
+            <div>
+              <span class="proj-tag">ENTERPRISE CMS &amp; OCR</span>
+              <h3>Klearstack Enterprise Platform</h3>
+              <p>
+                Automated document extraction and analytics interface for financial invoices and receipts with
+                interactive split-pane validation.
+              </p>
+            </div>
+            <div class="proj-footer">
+              <span class="mono" style="font-size: 0.76rem; color: var(--ink-dim);">SCSS · Angular · REST</span>
+              <div class="proj-links">
+                <a href="https://github.com/Sknadim713/Klearstack-frontend" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i> View Repo <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Enzigma Cloud Portal -->
+        <div class="col-12 col-md-6 reveal">
+          <div class="proj-card">
+            <div>
+              <span class="proj-tag">ENTERPRISE CLOUD</span>
+              <h3>Enzigma Cloud Dashboard</h3>
+              <p>
+                Role-based access management portal supporting granular permission matrices, team audit trails, and
+                multi-cloud sync.
+              </p>
+            </div>
+            <div class="proj-footer">
+              <span class="mono" style="font-size: 0.76rem; color: var(--ink-dim);">TypeScript · Full Stack</span>
+              <div class="proj-links">
+                <a href="https://github.com/Sknadim713/EnzigmaFrontedEnd" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-github"></i> View Repo <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Twisted Mountain Animation Engine -->
+        <div class="col-12 col-md-6 reveal">
+          <div class="proj-card">
+            <div>
+              <span class="proj-tag">INTERACTIVE ANIMATION</span>
+              <h3>Twisted Mountain Animation</h3>
+              <p>
+                Interactive canvas and CSS3 dynamic motion engine demonstrating fluid particle movement, camera
+                transitions, and responsive graphics.
+              </p>
+            </div>
+            <div class="proj-footer">
+              <span class="mono" style="font-size: 0.76rem; color: var(--ink-dim);">HTML5 Canvas · CSS3 Motion</span>
+              <div class="proj-links">
+                <a href="https://github.com/Sknadim713/twistedmountainanimation" target="_blank"
+                  rel="noopener noreferrer">
+                  <i class="bi bi-github"></i> View Repo <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       EDUCATION & CERTIFICATIONS
+  ====================================================== -->
+  <section id="education" class="education-section">
+    <div class="container">
+      <div class="eyebrow reveal">06 · ACADEMICS</div>
+      <h2 class="section-title reveal">Education &amp; Qualifications</h2>
+
+      <div class="row">
+        <div class="col-12 col-lg-9 reveal">
+          <!-- MCA -->
+          <div class="edu-card">
+            <div>
+              <div class="deg">MCA — Master of Computer Applications</div>
+              <div class="inst">IGNOU (Indira Gandhi National Open University)</div>
+            </div>
+            <div class="yr">IN PROGRESS · EXPECTED 2026</div>
+          </div>
+
+          <!-- B.Sc. IT -->
+          <div class="edu-card">
+            <div>
+              <div class="deg">B.Sc. Information Technology — Grade A</div>
+              <div class="inst">North Maharashtra University</div>
+            </div>
+            <div class="yr">COMPLETED 2019</div>
+          </div>
+
+          <!-- Diploma -->
+          <div class="edu-card">
+            <div>
+              <div class="deg">Diploma in Computer Hardware &amp; Networking</div>
+              <div class="inst">Board of Technical Examinations</div>
+            </div>
+            <div class="yr">COMPLETED 2015</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CONTACT & DIRECT CONNECT (CLEAN & PROFESSIONAL)
+  ====================================================== -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-direct-card reveal">
+        <div class="row g-4 align-items-center">
+          <div class="col-12 col-lg-5">
+            <div class="eyebrow">07 · GET IN TOUCH</div>
+            <h2 class="section-title mb-2">Let's Connect Directly</h2>
+            <p class="text-secondary mb-4">
+              Open to Angular Developer roles across web and Ionic mobile applications in Fintech, Medical, Transport,
+              ERP, and Enterprise domains.
+            </p>
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge-chip pulse-verified">
+                <span class="pulse-dot"></span> Available for Hiring
+              </span>
+              <span class="badge-chip">
+                <i class="bi bi-geo-alt-fill text-primary"></i> Pune, India
+              </span>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-7">
+            <div class="row g-3">
+              <!-- Email Card -->
+              <div class="col-12 col-sm-6">
+                <div class="contact-item-box">
+                  <div class="contact-icon-bubble">
+                    <i class="bi bi-envelope-fill"></i>
+                  </div>
+                  <div>
+                    <div class="mono" style="font-size: 0.72rem; color: var(--ink-dim);">EMAIL</div>
+                    <a href="mailto:sknadeem713@gmail.com" class="text-white font-monospace fw-bold"
+                      style="font-size: 0.88rem;">sknadeem713@gmail.com</a>
+                    <div>
+                      <button class="btn btn-sm btn-link text-decoration-none p-0 mono"
+                        style="font-size: 0.72rem; color: var(--signal);" onclick="copyEmailToClipboard()">
+                        <i class="bi bi-copy"></i> Copy Email
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phone Card -->
+              <div class="col-12 col-sm-6">
+                <div class="contact-item-box">
+                  <div class="contact-icon-bubble">
+                    <i class="bi bi-telephone-fill"></i>
+                  </div>
+                  <div>
+                    <div class="mono" style="font-size: 0.72rem; color: var(--ink-dim);">PHONE / WHATSAPP</div>
+                    <a href="tel:+917709939297" class="text-white font-monospace fw-bold"
+                      style="font-size: 0.88rem;">+91 7709939297</a>
+                    <div>
+                      <a href="https://wa.me/917709939297" target="_blank" rel="noopener noreferrer"
+                        class="mono text-success text-decoration-none" style="font-size: 0.72rem;">
+                        <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- LinkedIn Card -->
+              <div class="col-12 col-sm-6">
+                <div class="contact-item-box">
+                  <div class="contact-icon-bubble">
+                    <i class="bi bi-linkedin"></i>
+                  </div>
+                  <div>
+                    <div class="mono" style="font-size: 0.72rem; color: var(--ink-dim);">LINKEDIN</div>
+                    <a href="https://linkedin.com/in/sknadeem713" target="_blank" rel="noopener noreferrer"
+                      class="text-white font-monospace fw-bold" style="font-size: 0.88rem;">
+                      /in/sknadeem713
+                    </a>
+                    <div>
+                      <a href="https://linkedin.com/in/sknadeem713" target="_blank" rel="noopener noreferrer"
+                        class="mono text-decoration-none" style="font-size: 0.72rem; color: var(--signal);">
+                        View Profile <i class="bi bi-arrow-up-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- GitHub Card -->
+              <div class="col-12 col-sm-6">
+                <div class="contact-item-box">
+                  <div class="contact-icon-bubble">
+                    <i class="bi bi-github"></i>
+                  </div>
+                  <div>
+                    <div class="mono" style="font-size: 0.72rem; color: var(--ink-dim);">GITHUB</div>
+                    <a href="https://github.com/Sknadim713" target="_blank" rel="noopener noreferrer"
+                      class="text-white font-monospace fw-bold" style="font-size: 0.88rem;">
+                      github.com/Sknadim713
+                    </a>
+                    <div>
+                      <a href="https://github.com/Sknadim713" target="_blank" rel="noopener noreferrer"
+                        class="mono text-decoration-none" style="font-size: 0.72rem; color: var(--signal);">
+                        Explore Repositories <i class="bi bi-arrow-up-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- =====================================================
        FOOTER
   ====================================================== -->
-
   <footer>
-
-    <div class="container d-flex justify-content-between flex-wrap gap-2">
-
-      <span>
-        © 2026 Nadim Shaikh
-      </span>
-
-      <span>
-        Pune, Maharashtra, India
-      </span>
-
+    <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div>
+        <span>© 2026 Nadim Shaikh · Angular Developer (v11–v21 &amp; Ionic)</span>
+      </div>
+      <div>
+        <span class="text-secondary">Pune, Maharashtra, India · <a href="#top" class="text-secondary"><i
+              class="bi bi-arrow-up"></i> Back to Top</a></span>
+      </div>
     </div>
-
   </footer>
 
-
   <!-- =====================================================
-       BOOTSTRAP JS
+       SCRIPTS: BOOTSTRAP, SWEETALERT2, CONFETTI & APP LOGIC
   ====================================================== -->
-
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js">
-  </script>
-
-
-  <!-- =====================================================
-       CUSTOM JAVASCRIPT
-  ====================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
   <script>
-
     document.addEventListener("DOMContentLoaded", function () {
-
       /* ============================================
-         SCROLL REVEAL
+         THEME ACCENT CUSTOMIZER
       ============================================ */
+      const themeDots = document.querySelectorAll(".theme-dot");
+      const currentAccent = localStorage.getItem("nadim_theme_accent") || "blue";
+      setAccentTheme(currentAccent);
 
-      const revealElements =
-        document.querySelectorAll(".reveal");
-
-      const observer =
-        new IntersectionObserver(
-
-          function (entries) {
-
-            entries.forEach(function (entry) {
-
-              if (entry.isIntersecting) {
-
-                entry.target.classList.add("in-view");
-
-                observer.unobserve(entry.target);
-
-              }
-
-            });
-
-          },
-
-          {
-            threshold: 0.15,
-            rootMargin: "0px 0px -40px 0px"
-          }
-
-        );
-
-
-      revealElements.forEach(function (element) {
-
-        observer.observe(element);
-
+      themeDots.forEach(dot => {
+        dot.addEventListener("click", function () {
+          const accent = this.getAttribute("data-accent");
+          setAccentTheme(accent);
+        });
       });
 
+      function setAccentTheme(accent) {
+        document.documentElement.setAttribute("data-theme-accent", accent);
+        localStorage.setItem("nadim_theme_accent", accent);
+        themeDots.forEach(d => {
+          if (d.getAttribute("data-accent") === accent) {
+            d.classList.add("active");
+          } else {
+            d.classList.remove("active");
+          }
+        });
+      }
 
       /* ============================================
-         STAGGER ANIMATION
+         CURSOR GLOW FOLLOWER
       ============================================ */
+      const glow = document.getElementById("cursor-glow");
+      if (glow && window.innerWidth > 768) {
+        window.addEventListener("pointermove", (e) => {
+          glow.style.left = e.clientX + "px";
+          glow.style.top = e.clientY + "px";
+        });
+      }
 
-      const groups = new Map();
+      /* ============================================
+         TYPEWRITER ANIMATION FOR HERO
+      ============================================ */
+      const phrases = [
+        "// Angular v11–v21 & Ionic Mobile Apps",
+        "// Core Banking & Dynamic KYC (Fintech)",
+        "// Medical & Clinical EHR Dashboards",
+        "// Real-time GPS & Telemetry (Transport)",
+        "// Multi-Tenant ERP & Role-Based Access",
+        "// Admission & Student Portals (Education)"
+      ];
+      let phraseIdx = 0;
+      let letterIdx = 0;
+      let isDeleting = false;
+      const typewriterElem = document.getElementById("role-typewriter");
 
-      revealElements.forEach(function (element) {
-
-        const parent = element.parentElement;
-
-        if (!groups.has(parent)) {
-          groups.set(parent, []);
+      function typeLoop() {
+        if (!typewriterElem) return;
+        const current = phrases[phraseIdx];
+        if (isDeleting) {
+          typewriterElem.textContent = current.substring(0, letterIdx - 1);
+          letterIdx--;
+        } else {
+          typewriterElem.textContent = current.substring(0, letterIdx + 1);
+          letterIdx++;
         }
 
-        groups.get(parent).push(element);
+        let speed = isDeleting ? 28 : 60;
 
-      });
+        if (!isDeleting && letterIdx === current.length) {
+          speed = 2200; // Pause at end
+          isDeleting = true;
+        } else if (isDeleting && letterIdx === 0) {
+          isDeleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          speed = 380;
+        }
 
-
-      groups.forEach(function (list) {
-
-        list.forEach(function (element, index) {
-
-          element.style.animationDelay =
-            (index * 0.08) + "s";
-
-        });
-
-      });
-
+        setTimeout(typeLoop, speed);
+      }
+      typeLoop();
 
       /* ============================================
-         CLOSE MOBILE NAVBAR AFTER CLICK
+         SCROLL REVEAL OBSERVER
       ============================================ */
-
-      const navLinks =
-        document.querySelectorAll(".navbar .nav-link");
-
-      const navbar =
-        document.getElementById("mainNav");
-
-      const bsCollapse =
-        new bootstrap.Collapse(navbar, {
-          toggle: false
-        });
-
-
-      navLinks.forEach(function (link) {
-
-        link.addEventListener("click", function () {
-
-          if (
-            window.innerWidth < 992 &&
-            navbar.classList.contains("show")
-          ) {
-
-            bsCollapse.hide();
-
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
           }
-
         });
+      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
 
-      });
-
+      reveals.forEach(el => observer.observe(el));
 
       /* ============================================
-         ACTIVE NAV LINK
+         NAVBAR SCROLL STYLING
       ============================================ */
-
-      const sections =
-        document.querySelectorAll("section[id]");
-
-      const links =
-        document.querySelectorAll(".nav-link");
-
-
-      window.addEventListener("scroll", function () {
-
-        let currentSection = "";
-
-        sections.forEach(function (section) {
-
-          const sectionTop =
-            section.offsetTop - 120;
-
-          const sectionHeight =
-            section.offsetHeight;
-
-          if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
-          ) {
-
-            currentSection =
-              section.getAttribute("id");
-
-          }
-
-        });
-
-
-        links.forEach(function (link) {
-
-          link.classList.remove("active");
-
-          if (
-            link.getAttribute("href") ===
-            "#" + currentSection
-          ) {
-
-            link.classList.add("active");
-
-          }
-
-        });
-
+      const nav = document.getElementById("topNavbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
       });
-
     });
 
-  </script>
+    /* ============================================
+       COPY ENGINEER.TS CODE
+    ============================================ */
+    const engineerCodeRaw = `// engineer.ts — Nadim Shaikh
+export const Developer = {
+  name: "Shaikh Nadim",
+  role: "Angular Developer",
+  experience: "4.3+ Years Production",
+  angularVersions: "Angular 11 to 21",
+  mobileApps: "Ionic Angular (Capacitor / Android & iOS)",
+  domains: [
+    "Fintech & Banking (KYC, AG Grid, NEFT/RTGS, NACH)",
+    "Medical & Healthcare (Clinical, Patient EHR, WCAG)",
+    "Transport & Telemetry (GPS Fleet, Leaflet Maps)",
+    "Enterprise ERP (Multi-tenant, RBAC, Procurement)",
+    "Education Portals (Admissions, Merit, Fees)"
+  ],
+  coreStack: [
+    "Angular (11-21)", "Ionic", "TypeScript",
+    "RxJS", "NgRx Store/Effects", "AG Grid",
+    "ngx-formly", "Reactive Forms", "Material"
+  ],
+  cmsSpecialty: "SFMC AMPscript, ngx-quill, TinyMCE, CKEditor",
+  fullStack: "Node.js, Express, MongoDB, React.js",
+  education: "MCA (In Progress 2026) · B.Sc. IT (Grade A)",
+  status: "Open to Opportunities"
+};`;
 
+    function copyEngineerCode(badge) {
+      navigator.clipboard.writeText(engineerCodeRaw).then(() => {
+        badge.innerHTML = '<i class="bi bi-check2"></i> copied!';
+        setTimeout(() => {
+          badge.innerHTML = '<i class="bi bi-copy"></i> copy';
+        }, 2000);
+      });
+    }
+
+    /* ============================================
+       LIBRARY ECOSYSTEM FILTERING
+    ============================================ */
+    function filterLibs(category, btn) {
+      const pills = document.querySelectorAll(".lib-filter-pill");
+      pills.forEach(p => p.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+
+      const items = document.querySelectorAll(".lib-item");
+      items.forEach(item => {
+        const itemCats = item.getAttribute("data-cat");
+        if (category === "all") {
+          item.style.display = "block";
+        } else if (category === "top15") {
+          if (itemCats.includes("top15")) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        } else {
+          if (itemCats.includes(category)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        }
+      });
+    }
+
+    function filterByTop15() {
+      const pill = document.querySelector(".lib-filter-pill.featured-pill");
+      filterLibs('top15', pill);
+      document.getElementById('stack').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* ============================================
+       INTERACTIVE FINTECH DEMO CONTROLS
+    ============================================ */
+    let balanceVal = 1482500;
+
+    function filterDemoGrid() {
+      const query = document.getElementById("gridSearchInput").value.toLowerCase();
+      const rows = document.querySelectorAll("#demoGridBody tr");
+      rows.forEach(r => {
+        const text = r.innerText.toLowerCase();
+        if (text.includes(query)) {
+          r.style.display = "";
+        } else {
+          r.style.display = "none";
+        }
+      });
+    }
+
+    function setGridCategory(cat, btn) {
+      const btns = document.querySelectorAll(".demo-filter-btn");
+      btns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const rows = document.querySelectorAll("#demoGridBody tr");
+      rows.forEach(r => {
+        const rowType = r.getAttribute("data-type");
+        if (cat === "ALL" || rowType === cat) {
+          r.style.display = "";
+        } else {
+          r.style.display = "none";
+        }
+      });
+    }
+
+    function viewTxnDetails(txnId, party, amount, status) {
+      Swal.fire({
+        title: `<strong>${txnId}</strong>`,
+        icon: status === 'AML AUDIT' ? 'warning' : 'info',
+        html: `
+          <div style="text-align: left; font-family: var(--mono); font-size: 0.88rem; padding: 10px;">
+            <p><strong>Beneficiary:</strong> ${party}</p>
+            <p><strong>Amount:</strong> <span style="color: #10b981; font-weight: bold;">${amount}</span></p>
+            <p><strong>Status:</strong> ${status}</p>
+            <p><strong>Reconciliation Hash:</strong> <code>0x9a83f1240c57b</code></p>
+            <p><strong>Verification Standard:</strong> ISO 20022 Financial Gateway</p>
+          </div>
+        `,
+        showCloseButton: true,
+        confirmButtonText: '<i class="bi bi-download"></i> Download Audit Receipt',
+        confirmButtonColor: '#3b82f6',
+        background: '#0e172a',
+        color: '#f1f5f9'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'Receipt Generated',
+            text: `Statement for ${txnId} rendered via jsPDF engine.`,
+            icon: 'success',
+            background: '#0e172a',
+            color: '#f1f5f9'
+          });
+        }
+      });
+    }
+
+    function simulatePaymentTransaction() {
+      Swal.fire({
+        title: 'Simulate RTGS / Instant Transfer',
+        html: `
+          <div style="text-align: left; font-family: var(--sans);">
+            <div class="mb-3">
+              <label class="form-label mono" style="font-size: 0.8rem;">Beneficiary Account</label>
+              <input type="text" id="swalParty" class="form-control" value="State Bank of India — Treasury">
+            </div>
+            <div class="mb-3">
+              <label class="form-label mono" style="font-size: 0.8rem;">Amount (INR)</label>
+              <input type="number" id="swalAmount" class="form-control font-monospace" value="50000">
+            </div>
+            <div class="mb-3">
+              <label class="form-label mono" style="font-size: 0.8rem;">Settlement Network</label>
+              <select id="swalChannel" class="form-select">
+                <option value="NEFT">NEFT (Immediate Batch)</option>
+                <option value="RTGS" selected>RTGS (Real-Time Gross Settlement)</option>
+                <option value="IMPS">IMPS 24x7</option>
+              </select>
+            </div>
+          </div>
+        `,
+        showCancelButton: true,
+        confirmButtonText: 'Authorize & Transfer',
+        confirmButtonColor: '#10b981',
+        cancelButtonColor: '#64748b',
+        background: '#0e172a',
+        color: '#f1f5f9',
+        preConfirm: () => {
+          const party = document.getElementById('swalParty').value;
+          const amt = parseFloat(document.getElementById('swalAmount').value) || 50000;
+          const channel = document.getElementById('swalChannel').value;
+          return { party, amt, channel };
+        }
+      }).then((res) => {
+        if (res.isConfirmed) {
+          const { party, amt, channel } = res.value;
+          balanceVal -= amt;
+          document.getElementById('account-balance').textContent = '₹ ' + balanceVal.toLocaleString('en-IN') + '.00';
+
+          const newId = 'TXN-' + Math.floor(100000 + Math.random() * 900000);
+          const tbody = document.getElementById('demoGridBody');
+          const newRow = document.createElement('tr');
+          newRow.setAttribute('data-type', 'NEFT');
+          newRow.innerHTML = `
+            <td><strong class="text-white">${newId}</strong></td>
+            <td>${party}</td>
+            <td><span class="badge-chip">${channel} INSTANT</span></td>
+            <td>Just Now (Luxon)</td>
+            <td class="text-danger font-monospace">- ₹ ${amt.toLocaleString('en-IN')}.00</td>
+            <td><span class="status-badge-settled"><i class="bi bi-check2"></i> SETTLED</span></td>
+            <td>
+              <button class="btn btn-sm btn-outline-primary py-0 px-2" style="font-size: 0.72rem;" onclick="viewTxnDetails('${newId}', '${party}', '- ₹ ${amt.toLocaleString('en-IN')}.00', 'SETTLED')">
+                Inspect
+              </button>
+            </td>
+          `;
+          tbody.prepend(newRow);
+
+          if (window.confetti) {
+            confetti({
+              particleCount: 50,
+              spread: 60,
+              origin: { y: 0.7 }
+            });
+          }
+
+          Swal.fire({
+            icon: 'success',
+            title: 'Payment Successful',
+            text: `${channel} transfer of ₹ ${amt.toLocaleString('en-IN')} to ${party} completed.`,
+            background: '#0e172a',
+            color: '#f1f5f9'
+          });
+        }
+      });
+    }
+
+    function triggerKycSimulation() {
+      Swal.fire({
+        title: 'Dynamic KYC Verification Simulator',
+        html: `
+          <div style="text-align: left; font-family: var(--sans);">
+            <p style="font-size: 0.85rem; color: #94a3b8;">
+              Demonstrating <strong>@ngx-formly/core</strong> dynamic schema generation with <strong>ngx-mask</strong>.
+            </p>
+            <div class="mb-3">
+              <label class="form-label mono" style="font-size: 0.78rem;">Permanent Account Number (PAN)</label>
+              <input type="text" class="form-control font-monospace" placeholder="ABCDE1234F" value="ABCDE1234F" readonly>
+            </div>
+            <div class="mb-3">
+              <label class="form-label mono" style="font-size: 0.78rem;">Aadhaar 12-Digit Masked</label>
+              <input type="text" class="form-control font-monospace" placeholder="XXXX-XXXX-8921" value="XXXX-XXXX-8921" readonly>
+            </div>
+            <div class="p-2 mb-2" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; font-size: 0.8rem; color: #10b981;">
+              <i class="bi bi-shield-check"></i> Biometric OCR &amp; Liveness Score: 98.4% Passed
+            </div>
+          </div>
+        `,
+        confirmButtonText: 'Approve & Issue Account',
+        confirmButtonColor: '#10b981',
+        background: '#0e172a',
+        color: '#f1f5f9'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            icon: 'success',
+            title: 'KYC Approved',
+            text: 'Account status updated to Verified in Core Banking Database.',
+            background: '#0e172a',
+            color: '#f1f5f9'
+          });
+        }
+      });
+    }
+
+    function exportSimulatorData() {
+      Swal.fire({
+        icon: 'success',
+        title: 'XLSX Export Initiated',
+        text: 'Exported 6 ledger rows using simulated xlsx (SheetJS) with custom styling and timestamps.',
+        background: '#0e172a',
+        color: '#f1f5f9',
+        timer: 2500
+      });
+    }
+
+    function copyEmailToClipboard() {
+      navigator.clipboard.writeText("sknadeem713@gmail.com").then(() => {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'success',
+          title: 'Copied sknadeem713@gmail.com',
+          showConfirmButton: false,
+          timer: 2000,
+          background: '#0e172a',
+          color: '#f1f5f9'
+        });
+      });
+    }
+  </script>
 </body>
 
 </html>
